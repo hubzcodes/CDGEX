@@ -3,189 +3,184 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HNReserve | Digital Asset Allocation</title>
+<title>HNReserve | Capital Allocation Platform</title>
 
 <style>
 :root{
-  --border: rgba(255,255,255,0.08);
-  --soft: rgba(255,255,255,0.04);
-  --text-muted:#bdbdbd;
+  --bg:#000;
+  --fg:#fff;
+  --muted:#bdbdbd;
+  --border:rgba(255,255,255,0.08);
+  --soft:rgba(255,255,255,0.04);
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
-  background:#000;
-  color:#fff;
-  line-height:1.7;
-  overflow-x:hidden;
+  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--fg);
+  line-height:1.6;
 }
 
-/* GRID BACKGROUND */
+/* BACKGROUND GRID */
 body::before{
   content:"";
   position:fixed;
   inset:0;
   background:
-    linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
-  background-size:56px 56px;
-  animation:gridMove 60s linear infinite;
+    linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+  background-size:60px 60px;
   z-index:-1;
 }
-@keyframes gridMove{
-  to{background-position:56px 56px,56px 56px}
-}
 
-/* HEADER */
-header{
-  padding:90px 20px 70px;
-  text-align:center;
+/* NAV */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:22px 30px;
   border-bottom:1px solid var(--border);
 }
-header h1{
-  font-size:54px;
-  letter-spacing:5px;
-}
-header span{
-  display:inline-block;
-  margin-top:14px;
-  font-size:13px;
+nav strong{
   letter-spacing:2px;
-  color:var(--text-muted);
+}
+nav a{
+  color:var(--muted);
+  text-decoration:none;
+  margin-left:22px;
+  font-size:14px;
+}
+
+/* HERO */
+.hero{
+  max-width:1200px;
+  margin:auto;
+  padding:100px 20px 80px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:60px;
+}
+.hero h1{
+  font-size:56px;
+  line-height:1.1;
+  margin-bottom:20px;
+}
+.hero p{
+  color:var(--muted);
+  max-width:520px;
+}
+.hero-box{
+  border:1px solid var(--border);
+  background:var(--soft);
+  padding:36px;
+  border-radius:18px;
+}
+
+/* BUTTON */
+.btn{
+  display:inline-block;
+  margin-top:26px;
+  padding:14px 22px;
+  background:#fff;
+  color:#000;
+  border-radius:10px;
+  font-weight:600;
+  text-decoration:none;
+}
+
+/* METRICS STRIP */
+.metrics{
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:40px 20px;
+}
+.metrics-inner{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+}
+.metric{
+  border-left:2px solid #fff;
+  padding-left:16px;
+}
+.metric span{
+  font-size:12px;
+  color:var(--muted);
+}
+.metric strong{
+  display:block;
+  font-size:22px;
+  margin-top:6px;
 }
 
 /* SECTION */
 section{
   max-width:1200px;
   margin:auto;
-  padding:70px 20px;
-  border-bottom:1px solid var(--border);
+  padding:90px 20px;
 }
-
-.section-head{
+.section-title{
   display:flex;
   align-items:center;
   gap:16px;
-  margin-bottom:26px;
+  margin-bottom:36px;
 }
-.section-head::before{
+.section-title::before{
   content:"";
-  width:36px;
+  width:40px;
   height:1px;
   background:#fff;
 }
-.section-head h2{
-  font-size:30px;
-  letter-spacing:1px;
+section h2{
+  font-size:34px;
 }
 
-/* TEXT */
-p{
-  color:#d6d6d6;
-  max-width:850px;
-  margin-bottom:14px;
-}
-
-/* GRID */
-.grid{
+/* CARDS */
+.cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:28px;
-  margin-top:40px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
 }
-
-/* CARD */
 .card{
-  background:var(--soft);
   border:1px solid var(--border);
-  border-radius:16px;
+  background:var(--soft);
+  border-radius:18px;
   padding:34px;
-  position:relative;
-}
-.card::after{
-  content:"";
-  position:absolute;
-  inset:12px;
-  border:1px solid rgba(255,255,255,0.03);
-  border-radius:12px;
-  pointer-events:none;
-}
-.card h3{
-  font-size:20px;
-  margin-bottom:10px;
 }
 .card span{
   font-size:12px;
-  color:var(--text-muted);
-  letter-spacing:1px;
+  color:var(--muted);
+}
+.card h3{
+  margin:10px 0;
 }
 
-/* BADGE */
-.badge{
-  display:inline-block;
-  padding:6px 10px;
-  border:1px solid var(--border);
-  border-radius:20px;
-  font-size:11px;
-  letter-spacing:1px;
-  color:var(--text-muted);
-  margin-bottom:16px;
-}
-
-/* PRICE */
-.price{
-  font-size:26px;
-  margin-top:18px;
-}
-
-/* BUTTON */
-.btn{
-  display:block;
-  margin-top:24px;
-  padding:14px;
-  text-align:center;
-  border-radius:10px;
-  background:#fff;
-  color:#000;
-  font-weight:600;
-  text-decoration:none;
-}
-.btn:hover{background:#e5e5e5}
-
-/* LIST BLOCK */
-.list{
+/* STEPS */
+.steps{
   display:grid;
-  gap:12px;
-  margin-top:20px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:26px;
 }
-.list div{
-  padding-left:18px;
-  position:relative;
-  color:#d6d6d6;
+.step{
+  border:1px solid var(--border);
+  padding:30px;
+  border-radius:16px;
 }
-.list div::before{
-  content:"—";
-  position:absolute;
-  left:0;
-}
-
-/* Q&A */
-.qa{
-  border-top:1px solid var(--border);
-  padding-top:24px;
-}
-.qa p strong{
-  display:block;
-  margin-bottom:6px;
+.step strong{
+  font-size:13px;
+  color:var(--muted);
 }
 
 /* FOOTER */
 footer{
-  padding:60px 20px;
+  border-top:1px solid var(--border);
+  padding:50px 20px;
   text-align:center;
-  color:#888;
+  color:#777;
   font-size:13px;
 }
 </style>
@@ -193,121 +188,129 @@ footer{
 
 <body>
 
-<header>
-  <h1>HNReserve</h1>
-  <span>DISCRETIONARY CAPITAL ALLOCATION</span>
-</header>
+<nav>
+  <strong>HNRESERVE</strong>
+  <div>
+    <a href="#programs">Programs</a>
+    <a href="#process">Process</a>
+    <a href="#rules">Rules</a>
+  </div>
+</nav>
 
-<section>
-  <div class="section-head"><h2>Overview</h2></div>
-  <p>
-    HNReserve is a privately operated capital allocation desk focused on liquid
-    global markets including digital assets, equities, and gold.
-  </p>
-  <p>
-    Exposure is taken selectively based on structure, volatility, and liquidity.
-    Capital preservation is prioritized when market clarity is absent.
-  </p>
-</section>
+<div class="hero">
+  <div>
+    <h1>Structured Capital<br>Allocation Platform</h1>
+    <p>
+      HNReserve provides discretionary capital access through a
+      controlled evaluation and allocation framework.
+    </p>
+    <a class="btn" href="#programs">View Access Options</a>
+  </div>
 
-<section>
-  <div class="section-head"><h2>Decision Framework</h2></div>
-  <div class="grid">
-    <div class="card">
-      <span>STRUCTURE</span>
-      <h3>Market Context</h3>
-      <p>Price behavior, range acceptance, and directional imbalance.</p>
+  <div class="hero-box">
+    <p>
+      Capital deployment is selective.  
+      Exposure is based on liquidity, structure,
+      and volatility—not activity.
+    </p>
+    <p style="margin-top:14px;">
+      Cash is treated as a strategic position.
+    </p>
+  </div>
+</div>
+
+<div class="metrics">
+  <div class="metrics-inner">
+    <div class="metric">
+      <span>MARKETS</span>
+      <strong>Crypto · Equity · Gold</strong>
     </div>
-    <div class="card">
-      <span>VOLATILITY</span>
-      <h3>Risk Conditions</h3>
-      <p>Expansion and contraction phases determine exposure sizing.</p>
+    <div class="metric">
+      <span>EXPOSURE</span>
+      <strong>Selective</strong>
     </div>
-    <div class="card">
-      <span>LIQUIDITY</span>
-      <h3>Execution Quality</h3>
-      <p>Capital is deployed only where liquidity supports entry and exit.</p>
+    <div class="metric">
+      <span>SCALING</span>
+      <strong>Capacity-Based</strong>
+    </div>
+    <div class="metric">
+      <span>COMMUNICATION</span>
+      <strong>Telegram Only</strong>
     </div>
   </div>
-</section>
+</div>
 
-<section>
-  <div class="section-head"><h2>Operational Principles</h2></div>
-  <div class="list">
-    <div>No leverage guarantees</div>
-    <div>No constant market exposure</div>
-    <div>Cash is an active position</div>
-    <div>Risk defined before allocation</div>
-  </div>
-</section>
+<section id="programs">
+  <div class="section-title"><h2>Access Programs</h2></div>
 
-<section>
-  <div class="section-head"><h2>Capital Evaluation Program</h2></div>
-  <p>
-    HNReserve provides an internal evaluation pathway for individuals seeking
-    potential access to proprietary capital allocation.
-  </p>
-  <p>
-    Evaluation focuses on execution discipline, drawdown behavior, and consistency.
-    Short-term results are not used in isolation.
-  </p>
-
-  <div class="list">
-    <div>Observation-based review period</div>
-    <div>No profit targets or time limits</div>
-    <div>No guaranteed scaling</div>
-    <div>Gradual allocation where applicable</div>
-  </div>
-</section>
-
-<section>
-  <div class="section-head"><h2>Why Performance Is Not Displayed</h2></div>
-  <p>
-    Public performance statistics are frequently misleading and encourage
-    outcome-driven decision making.
-  </p>
-  <p>
-    HNReserve avoids promotional performance reporting to prevent
-    misinterpretation and unrealistic expectations.
-  </p>
-</section>
-
-<section>
-  <div class="section-head"><h2>Access Options</h2></div>
-  <div class="grid">
+  <div class="cards">
     <div class="card">
-      <div class="badge">COMMENTARY ACCESS</div>
+      <span>COMMENTARY ACCESS</span>
       <h3>Market Insights</h3>
-      <p>Trade ideas and structured market observations.</p>
-      <div class="price">250 USDT</div>
-      <a class="btn" href="payment.html">Proceed</a>
+      <p>
+        Structured trade commentary and market context.
+      </p>
+      <p><strong>250 USDT</strong></p>
     </div>
 
     <div class="card">
-      <div class="badge">MANAGED ALLOCATION</div>
+      <span>MANAGED ALLOCATION</span>
       <h3>Capital Deployment</h3>
-      <p>Discretionary allocation with periodic review.</p>
-      <div class="price">800 USDT Minimum</div>
-      <a class="btn" href="payment.html">Begin</a>
+      <p>
+        Discretionary capital allocation with periodic review.
+      </p>
+      <p><strong>Minimum 800 USDT</strong></p>
+    </div>
+
+    <div class="card">
+      <span>EVALUATION PATHWAY</span>
+      <h3>Capital Observation</h3>
+      <p>
+        Execution-based review for potential internal allocation.
+      </p>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="section-head"><h2>Questions & Clarifications</h2></div>
+<section id="process">
+  <div class="section-title"><h2>Evaluation Process</h2></div>
 
-  <div class="qa">
-    <p><strong>Is profit guaranteed?</strong>
-    No. Market participation involves risk, including loss of capital.</p>
+  <div class="steps">
+    <div class="step">
+      <strong>STEP 01</strong>
+      <p>Application & verification</p>
+    </div>
+    <div class="step">
+      <strong>STEP 02</strong>
+      <p>Observation period</p>
+    </div>
+    <div class="step">
+      <strong>STEP 03</strong>
+      <p>Risk & execution review</p>
+    </div>
+    <div class="step">
+      <strong>STEP 04</strong>
+      <p>Conditional allocation</p>
+    </div>
+  </div>
+</section>
 
-    <p><strong>How often are trades taken?</strong>
-    There is no fixed frequency. Activity depends on conditions.</p>
+<section id="rules">
+  <div class="section-title"><h2>Operating Rules</h2></div>
 
-    <p><strong>Is this a prop firm?</strong>
-    No. HNReserve operates as a private capital operation.</p>
-
-    <p><strong>Why manual payments?</strong>
-    To maintain controlled onboarding and avoid third-party dependencies.</p>
+  <div class="cards">
+    <div class="card">
+      <h3>No Guarantees</h3>
+      <p>No profit, leverage, or scaling guarantees.</p>
+    </div>
+    <div class="card">
+      <h3>No Constant Exposure</h3>
+      <p>Capital is deployed only when conditions justify risk.</p>
+    </div>
+    <div class="card">
+      <h3>Right to Refuse</h3>
+      <p>HNReserve reserves the right to decline capital.</p>
+    </div>
   </div>
 </section>
 
