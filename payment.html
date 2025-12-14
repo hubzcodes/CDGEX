@@ -1,51 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HNReserve | Application</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>HNReserve | Payment</title>
 
 <style>
+:root{
+  --bg:#000;
+  --fg:#fff;
+  --muted:#aaa;
+  --border:rgba(255,255,255,.08);
+  --soft:rgba(255,255,255,.04);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
 body{
   font-family:Inter,system-ui,sans-serif;
-  background:#000;
-  color:#fff;
-  margin:0;
+  background:var(--bg);
+  color:var(--fg);
 }
+
+/* GRID */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+  background-size:60px 60px;
+  z-index:-1;
+}
+
 .container{
-  max-width:720px;
-  margin:auto;
-  padding:80px 20px;
-}
-.box{
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.04);
-  border-radius:18px;
+  max-width:520px;
+  margin:90px auto;
   padding:40px;
+  border:1px solid var(--border);
+  background:var(--soft);
+  border-radius:20px;
+  text-align:center;
 }
-input,select{
-  width:100%;
-  padding:14px;
-  margin-top:14px;
-  background:#000;
-  border:1px solid rgba(255,255,255,.2);
-  color:#fff;
-  border-radius:10px;
+
+h1{
+  font-size:26px;
+  margin-bottom:20px;
 }
-button{
-  margin-top:24px;
-  padding:14px;
-  width:100%;
-  border:none;
-  border-radius:10px;
-  font-weight:600;
-  background:#fff;
-  color:#000;
-}
+
 .wallet{
-  margin-top:30px;
-  font-size:14px;
   word-break:break-all;
+  background:#000;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  margin:16px 0;
+}
+
+img{
+  max-width:220px;
+  margin:20px auto;
+  display:block;
+}
+
+p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+a{
+  color:#fff;
+  text-decoration:underline;
 }
 </style>
 </head>
@@ -53,25 +79,26 @@ button{
 <body>
 
 <div class="container">
-  <div class="box">
-    <h2>Application Form</h2>
+  <h1>Payment Instructions</h1>
 
-    <input placeholder="Full Name">
-    <input placeholder="Telegram Username">
-    <select>
-      <option>Market Commentary</option>
-      <option>Managed Allocation</option>
-    </select>
-    <input placeholder="Intended Capital (USDT)">
+  <p>Send <strong>USDT (Solana)</strong> to:</p>
 
-    <button>Proceed to Payment</button>
-
-    <div class="wallet">
-      <p>Send USDT (Solana) to:</p>
-      <strong>7KhAMz4MYE4GLL2iYRUyBL25yM1TBttqZdM7ug2RGHbS</strong>
-      <p>After payment, message <strong>@cdgmarket</strong> with proof.</p>
-    </div>
+  <div class="wallet">
+    7KhAMz4MYE4GLL2iYRUyBL25yM1TBttqZdM7ug2RGHbS
   </div>
+
+  <img src="qr.png" alt="USDT Solana QR Code" />
+
+  <p>
+    After payment, message
+    <a href="https://t.me/cdgmarket" target="_blank">@cdgmarket</a>
+    with transaction proof.
+  </p>
+
+  <p style="margin-top:16px;font-size:12px;">
+    Only USDT (SPL) accepted.  
+    Applications are reviewed manually.
+  </p>
 </div>
 
 </body>
