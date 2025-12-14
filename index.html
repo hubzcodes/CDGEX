@@ -3,28 +3,27 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HNReserve | Capital Allocation Platform</title>
+<title>HNReserve | Capital Allocation</title>
 
 <style>
 :root{
   --bg:#000;
   --fg:#fff;
   --muted:#bdbdbd;
-  --border:rgba(255,255,255,0.08);
-  --soft:rgba(255,255,255,0.04);
+  --border:rgba(255,255,255,.08);
+  --soft:rgba(255,255,255,.04);
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-
 body{
-  font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-family:Inter,system-ui,sans-serif;
   background:var(--bg);
   color:var(--fg);
   line-height:1.6;
   overflow-x:hidden;
 }
 
-/* GRID BACKGROUND */
+/* GRID */
 body::before{
   content:"";
   position:fixed;
@@ -47,9 +46,8 @@ nav{
 nav strong{letter-spacing:2px}
 nav a{
   color:var(--muted);
-  text-decoration:none;
   margin-left:18px;
-  font-size:14px;
+  text-decoration:none;
 }
 
 /* HERO */
@@ -61,41 +59,41 @@ nav a{
   grid-template-columns:1fr 1fr;
   gap:50px;
 }
-.hero h1{
-  font-size:54px;
-  line-height:1.1;
-}
-.hero p{
-  color:var(--muted);
-  margin-top:16px;
-}
+.hero h1{font-size:54px;line-height:1.1}
+.hero p{color:var(--muted);margin-top:14px}
+
 .hero-box{
   border:1px solid var(--border);
   background:var(--soft);
   padding:34px;
   border-radius:18px;
+  transition:.4s;
 }
+.hero-box:hover{transform:translateY(-6px)}
 
 /* BUTTON */
 .btn{
   display:inline-block;
-  margin-top:24px;
-  padding:14px 22px;
+  margin-top:22px;
+  padding:14px 24px;
   background:#fff;
   color:#000;
   border-radius:10px;
   font-weight:600;
   text-decoration:none;
+  transition:.25s;
+}
+.btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(255,255,255,.15);
 }
 
-/* SECTIONS */
+/* SECTION */
 section{
   max-width:1200px;
   margin:auto;
   padding:90px 20px;
 }
-
-/* ICON HEADERS */
 .section-head{
   display:flex;
   align-items:center;
@@ -104,12 +102,11 @@ section{
 }
 .section-head svg{
   width:28px;
-  height:28px;
   stroke:#fff;
-  transition:.3s;
+  transition:.4s;
 }
 .section-head:hover svg{
-  transform:scale(1.15) rotate(6deg);
+  transform:rotate(8deg) scale(1.2);
 }
 section h2{font-size:32px}
 
@@ -122,21 +119,21 @@ section h2{font-size:32px}
 .card{
   border:1px solid var(--border);
   background:var(--soft);
-  border-radius:16px;
-  padding:30px;
-  transition:.3s;
+  border-radius:18px;
+  padding:32px;
+  transition:.35s;
 }
 .card:hover{
-  transform:translateY(-6px);
+  transform:translateY(-8px);
   border-color:#fff;
 }
 
-/* AUTO SCROLL STRIP */
+/* SCROLL STRIP */
 .strip{
-  overflow:hidden;
   border-top:1px solid var(--border);
   border-bottom:1px solid var(--border);
   padding:30px 0;
+  overflow:hidden;
 }
 .strip-track{
   display:flex;
@@ -145,10 +142,9 @@ section h2{font-size:32px}
 }
 .strip div{
   border:1px solid var(--border);
-  padding:18px 26px;
-  border-radius:12px;
+  padding:18px 28px;
+  border-radius:14px;
   color:#aaa;
-  white-space:nowrap;
 }
 @keyframes scroll{
   to{transform:translateX(-50%)}
@@ -158,7 +154,6 @@ section h2{font-size:32px}
 table{
   width:100%;
   border-collapse:collapse;
-  margin-top:30px;
 }
 th,td{
   border:1px solid var(--border);
@@ -166,6 +161,10 @@ th,td{
 }
 th{background:var(--soft)}
 td{color:#d0d0d0}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(40px);transition:1s}
+.reveal.active{opacity:1;transform:none}
 
 /* MOBILE */
 @media(max-width:900px){
@@ -182,49 +181,38 @@ td{color:#d0d0d0}
   <strong>HNRESERVE</strong>
   <div>
     <a href="#programs">Programs</a>
-    <a href="#comparison">Evaluation</a>
-    <a href="payment.html">Payment</a>
+    <a href="#markets">Markets</a>
+    <a href="payment.html">Apply</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<div class="hero">
+<div class="hero reveal">
   <div>
     <h1>Institutional Capital Allocation</h1>
     <p>
-      HNReserve operates a discretionary allocation framework focused
-      on capital discipline, selective exposure, and execution integrity.
+      A selective capital deployment framework prioritizing execution
+      quality and risk discipline.
     </p>
-    <a class="btn" href="payment.html">Proceed to Payment</a>
+    <a class="btn" href="payment.html">Apply for Access</a>
   </div>
-
   <div class="hero-box">
-    <p>
-      Capital is deployed only during market environments that support
-      asymmetric risk profiles.
-    </p>
-    <p>
-      Target efficiency may be elevated under favorable conditions,
-      though outcomes remain variable.
-    </p>
+    Capital is deployed opportunistically.
+    Cash remains a position when conditions are unsuitable.
   </div>
 </div>
 
-<!-- PARTNER STRIP -->
 <div class="strip">
   <div class="strip-track">
     <div>Solana Network</div>
     <div>USDT (SPL)</div>
-    <div>On-Chain Settlement</div>
-    <div>Telegram Infrastructure</div>
     <div>Liquidity Venues</div>
+    <div>On-Chain Settlement</div>
     <div>Solana Network</div>
     <div>USDT (SPL)</div>
   </div>
 </div>
 
-<!-- PROGRAMS -->
-<section id="programs">
+<section id="programs" class="reveal">
   <div class="section-head">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M4 4h16v16H4z"/></svg>
     <h2>Access Programs</h2>
@@ -233,96 +221,56 @@ td{color:#d0d0d0}
   <div class="cards">
     <div class="card">
       <h3>Market Commentary</h3>
-      <p>Structured trade insights and directional context.</p>
+      <p>Trade insights and structured analysis.</p>
       <strong>250 USDT</strong><br>
-      <a class="btn" href="payment.html">Pay</a>
+      <a class="btn" href="payment.html">Continue</a>
     </div>
 
     <div class="card">
       <h3>Managed Allocation</h3>
-      <p>Discretionary capital deployment with periodic review.</p>
+      <p>Discretionary capital deployment.</p>
       <strong>Minimum 800 USDT</strong><br>
-      <a class="btn" href="payment.html">Pay</a>
+      <a class="btn" href="payment.html">Continue</a>
     </div>
   </div>
 </section>
 
-<!-- COMPARISON -->
-<section id="comparison">
+<section id="markets" class="reveal">
   <div class="section-head">
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 12h18"/></svg>
-    <h2>Challenge vs Evaluation</h2>
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 12h18M12 3v18"/></svg>
+    <h2>Live Markets</h2>
   </div>
-
-  <table>
-    <tr>
-      <th></th>
-      <th>Typical Challenges</th>
-      <th>HNReserve Evaluation</th>
-    </tr>
-    <tr>
-      <td>Profit Targets</td>
-      <td>Fixed</td>
-      <td>None</td>
-    </tr>
-    <tr>
-      <td>Time Constraints</td>
-      <td>Strict</td>
-      <td>Flexible</td>
-    </tr>
-    <tr>
-      <td>Scaling</td>
-      <td>Automatic</td>
-      <td>Capacity-Based</td>
-    </tr>
-    <tr>
-      <td>Primary Focus</td>
-      <td>Results</td>
-      <td>Risk & Execution</td>
-    </tr>
-  </table>
-</section>
-
-<!-- LIVE MARKETS -->
-<section id="markets">
-  <div class="section-head">
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-      <path d="M3 12h18M12 3v18"/>
-    </svg>
-    <h2>Live Market Overview</h2>
-  </div>
-
-  <p style="color:#cfcfcf;max-width:760px;margin-bottom:30px">
-    Live market data is provided for transparency and contextual awareness.
-    Charts reflect real-time conditions and do not represent allocation activity.
-  </p>
 
   <div class="cards">
-
     <div class="card">
-      <h3>Bitcoin (BTCUSDT)</h3>
-      <iframe src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT&interval=60&theme=dark&hide_top_toolbar=1&hide_legend=1"
-        style="width:100%;height:320px;border:0"></iframe>
+      <h3>BTCUSDT</h3>
+      <iframe src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT&interval=60&theme=dark&hide_top_toolbar=1" style="width:100%;height:300px;border:0"></iframe>
     </div>
-
     <div class="card">
-      <h3>Gold (XAUUSD)</h3>
-      <iframe src="https://s.tradingview.com/widgetembed/?symbol=OANDA:XAUUSD&interval=60&theme=dark&hide_top_toolbar=1&hide_legend=1"
-        style="width:100%;height:320px;border:0"></iframe>
+      <h3>XAUUSD</h3>
+      <iframe src="https://s.tradingview.com/widgetembed/?symbol=OANDA:XAUUSD&interval=60&theme=dark&hide_top_toolbar=1" style="width:100%;height:300px;border:0"></iframe>
     </div>
-
     <div class="card">
-      <h3>US30 (Dow Jones)</h3>
-      <iframe src="https://s.tradingview.com/widgetembed/?symbol=OANDA:US30USD&interval=60&theme=dark&hide_top_toolbar=1&hide_legend=1"
-        style="width:100%;height:320px;border:0"></iframe>
+      <h3>US30</h3>
+      <iframe src="https://s.tradingview.com/widgetembed/?symbol=OANDA:US30USD&interval=60&theme=dark&hide_top_toolbar=1" style="width:100%;height:300px;border:0"></iframe>
     </div>
-
   </div>
 </section>
 
-<footer style="border-top:1px solid var(--border);padding:50px 20px;text-align:center;color:#777;font-size:13px">
-© 2025 HNReserve. All rights reserved.
+<footer style="border-top:1px solid var(--border);padding:40px;text-align:center;color:#777">
+© 2025 HNReserve
 </footer>
+
+<script>
+const reveals=document.querySelectorAll(".reveal");
+window.addEventListener("scroll",()=>{
+  reveals.forEach(el=>{
+    if(el.getBoundingClientRect().top<window.innerHeight-80){
+      el.classList.add("active");
+    }
+  });
+});
+</script>
 
 </body>
 </html>
