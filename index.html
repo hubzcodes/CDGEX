@@ -23,7 +23,7 @@ body{
   line-height:1.6;
 }
 
-/* GRID BACKGROUND */
+/* BACKGROUND GRID */
 body::before{
   content:"";
   position:fixed;
@@ -61,7 +61,7 @@ nav a{
   gap:50px;
 }
 .hero h1{
-  font-size:52px;
+  font-size:54px;
   line-height:1.1;
 }
 .hero p{
@@ -71,7 +71,7 @@ nav a{
 .hero-box{
   border:1px solid var(--border);
   background:var(--soft);
-  padding:32px;
+  padding:34px;
   border-radius:18px;
 }
 
@@ -85,6 +85,29 @@ nav a{
   border-radius:10px;
   font-weight:600;
   text-decoration:none;
+}
+
+/* ICON HEADER */
+.section-head{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:26px;
+}
+.section-head svg{
+  width:28px;
+  height:28px;
+  stroke:#fff;
+}
+
+/* SECTION */
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:90px 20px;
+}
+section h2{
+  font-size:32px;
 }
 
 /* METRICS */
@@ -114,17 +137,6 @@ nav a{
   margin-top:6px;
 }
 
-/* SECTION */
-section{
-  max-width:1200px;
-  margin:auto;
-  padding:80px 20px;
-}
-section h2{
-  font-size:32px;
-  margin-bottom:20px;
-}
-
 /* CARDS */
 .cards{
   display:grid;
@@ -138,19 +150,26 @@ section h2{
   padding:30px;
 }
 
-/* TERMS */
-.terms p{
+/* LOGO STRIP */
+.logos{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:30px;
+  align-items:center;
+  margin-top:30px;
+}
+.logo{
+  border:1px solid var(--border);
+  padding:22px;
+  text-align:center;
+  border-radius:12px;
+  color:#aaa;
   font-size:14px;
-  color:#cfcfcf;
-  margin-bottom:14px;
 }
 
-/* MOBILE FIX */
+/* MOBILE */
 @media(max-width:900px){
-  .hero{
-    grid-template-columns:1fr;
-    padding:70px 20px;
-  }
+  .hero{grid-template-columns:1fr}
   .hero h1{font-size:40px}
   nav div{display:none}
 }
@@ -163,28 +182,29 @@ section h2{
   <strong>HNRESERVE</strong>
   <div>
     <a href="#programs">Programs</a>
+    <a href="#infrastructure">Infrastructure</a>
     <a href="payment.html">Payment</a>
   </div>
 </nav>
 
 <div class="hero">
   <div>
-    <h1>Structured Capital Allocation</h1>
+    <h1>Institutional Capital Allocation</h1>
     <p>
-      HNReserve operates a discretionary allocation framework across
-      crypto, equity, and commodity markets.
+      HNReserve operates a discretionary allocation framework
+      focused on disciplined exposure and capital preservation.
     </p>
     <a class="btn" href="payment.html">Proceed to Payment</a>
   </div>
 
   <div class="hero-box">
     <p>
-      Capital is deployed selectively under conditions that historically
-      support high capital efficiency.
+      Exposure is taken selectively during market environments
+      that historically support high capital efficiency.
     </p>
     <p>
-      Target performance environments may reach elevated efficiency levels,
-      subject to market conditions. Returns are variable and not guaranteed.
+      Target efficiency levels may reach elevated ranges under
+      suitable conditions. Returns remain variable and non-guaranteed.
     </p>
   </div>
 </div>
@@ -192,45 +212,78 @@ section h2{
 <div class="metrics">
   <div class="metrics-inner">
     <div class="metric"><span>MARKETS</span><strong>Crypto · Equity · Gold</strong></div>
-    <div class="metric"><span>STRATEGY</span><strong>Selective Exposure</strong></div>
+    <div class="metric"><span>STYLE</span><strong>Selective Exposure</strong></div>
+    <div class="metric"><span>CAPITAL</span><strong>Capacity Based</strong></div>
     <div class="metric"><span>COMMUNICATION</span><strong>Telegram Only</strong></div>
-    <div class="metric"><span>CAPITAL</span><strong>Capacity-Based</strong></div>
   </div>
 </div>
 
 <section id="programs">
-  <h2>Access Programs</h2>
+  <div class="section-head">
+    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+      <path d="M3 3h18v18H3z"/>
+    </svg>
+    <h2>Access Programs</h2>
+  </div>
 
   <div class="cards">
     <div class="card">
       <h3>Market Commentary</h3>
-      <p>Structured insights and trade context.</p>
+      <p>Structured trade insights and market context.</p>
       <strong>250 USDT</strong><br>
       <a class="btn" href="payment.html">Pay Now</a>
     </div>
 
     <div class="card">
       <h3>Managed Allocation</h3>
-      <p>Discretionary deployment with review.</p>
+      <p>Discretionary deployment with periodic review.</p>
       <strong>Minimum 800 USDT</strong><br>
       <a class="btn" href="payment.html">Pay Now</a>
     </div>
   </div>
 </section>
 
-<section class="terms">
-  <h2>Terms & Conditions</h2>
+<section id="infrastructure">
+  <div class="section-head">
+    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+      <path d="M12 2v20M2 12h20"/>
+    </svg>
+    <h2>Infrastructure & Partners</h2>
+  </div>
 
-  <p>HNReserve does not offer guaranteed returns, fixed income products, or risk-free investment vehicles.</p>
-  <p>Market participation involves substantial risk, including the possible loss of capital.</p>
-  <p>Capital deployment frequency, duration, and exposure levels vary based on market conditions.</p>
-  <p>HNReserve reserves the right to refuse, limit, or discontinue capital allocation at its discretion.</p>
-  <p>Past performance, whether explicit or implied, does not predict future results.</p>
-  <p>All communications occur exclusively through official Telegram channels.</p>
-  <p>Participants are responsible for understanding jurisdictional and regulatory considerations.</p>
+  <p style="color:#cfcfcf;max-width:700px">
+    Operations rely on established blockchain infrastructure,
+    liquidity venues, and execution environments.
+  </p>
+
+  <div class="logos">
+    <div class="logo">Solana Network</div>
+    <div class="logo">USDT (SPL)</div>
+    <div class="logo">Telegram</div>
+    <div class="logo">On-Chain Settlement</div>
+  </div>
 </section>
 
-<footer>
+<section>
+  <div class="section-head">
+    <svg fill="none" viewBox="0 0 24 24" stroke-width="1.5">
+      <path d="M4 7h16M4 12h16M4 17h16"/>
+    </svg>
+    <h2>Payment Methods</h2>
+  </div>
+
+  <p style="color:#cfcfcf">
+    All payments are processed manually to ensure controlled onboarding.
+  </p>
+
+  <div class="logos">
+    <div class="logo">USDT</div>
+    <div class="logo">Solana (SPL)</div>
+    <div class="logo">Manual Verification</div>
+  </div>
+</section>
+
+<footer style="border-top:1px solid var(--border);padding:50px 20px;text-align:center;color:#777;font-size:13px">
 © 2025 HNReserve. All Rights Reserved.
 </footer>
 
