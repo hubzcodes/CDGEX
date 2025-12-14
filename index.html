@@ -1,283 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HNReserve | Digital Asset Management</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HNReserve | Digital Asset Management</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
-    }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,sans-serif;
+  color:#fff;
+  background:#000;
+  line-height:1.8;
+  overflow-x:hidden;
+}
 
-    body {
-      background: #000;
-      color: #fff;
-      line-height: 1.75;
-    }
+/* Animated grid */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+  background-size:40px 40px;
+  animation:grid 40s linear infinite;
+  z-index:-1;
+}
+@keyframes grid{
+  from{background-position:0 0,0 0}
+  to{background-position:40px 40px,40px 40px}
+}
 
-    header {
-      padding: 80px 20px;
-      text-align: center;
-      border-bottom: 1px solid #1f1f1f;
-    }
+header{
+  padding:100px 20px;
+  text-align:center;
+  border-bottom:1px solid #1a1a1a;
+}
+header h1{
+  font-size:56px;
+  letter-spacing:4px;
+}
+header p{
+  margin-top:14px;
+  color:#9a9a9a;
+}
 
-    header h1 {
-      font-size: 54px;
-      letter-spacing: 3px;
-    }
+section{
+  max-width:1200px;
+  margin:auto;
+  padding:90px 20px;
+}
+h2{
+  font-size:36px;
+  margin-bottom:20px;
+}
+p{color:#d0d0d0}
 
-    header p {
-      color: #9a9a9a;
-      margin-top: 14px;
-      font-size: 17px;
-    }
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:30px;
+  margin-top:40px;
+}
+.card{
+  border:1px solid #222;
+  padding:40px;
+  border-radius:16px;
+  background:rgba(255,255,255,.02);
+}
+.price{
+  font-size:26px;
+  margin-top:18px;
+  font-weight:600;
+}
+.btn{
+  display:block;
+  margin-top:24px;
+  padding:16px;
+  text-align:center;
+  background:#fff;
+  color:#000;
+  border-radius:10px;
+  font-weight:600;
+  text-decoration:none;
+}
+.btn:hover{background:#e5e5e5}
 
-    section {
-      padding: 80px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    h2 {
-      font-size: 34px;
-      margin-bottom: 18px;
-    }
-
-    p {
-      color: #d6d6d6;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 26px;
-      margin-top: 32px;
-    }
-
-    .card {
-      border: 1px solid #222;
-      padding: 36px;
-      border-radius: 14px;
-      background: #0b0b0b;
-    }
-
-    .price {
-      font-size: 26px;
-      margin-top: 18px;
-      font-weight: 600;
-    }
-
-    .btn {
-      display: inline-block;
-      width: 100%;
-      padding: 16px;
-      background: #fff;
-      color: #000;
-      font-size: 16px;
-      font-weight: 600;
-      border-radius: 10px;
-      text-align: center;
-      text-decoration: none;
-      margin-top: 18px;
-    }
-
-    .btn:hover {
-      background: #e0e0e0;
-    }
-
-    .secondary {
-      background: #111;
-      color: #fff;
-      border: 1px solid #333;
-    }
-
-    .box {
-      margin-top: 22px;
-      padding: 26px;
-      border: 1px dashed #333;
-      border-radius: 12px;
-      background: #070707;
-      word-break: break-all;
-    }
-
-    .legal {
-      background: #050505;
-      border: 1px solid #222;
-      padding: 34px;
-      border-radius: 14px;
-      margin-top: 30px;
-    }
-
-    footer {
-      padding: 60px 20px;
-      border-top: 1px solid #222;
-      text-align: center;
-      color: #7a7a7a;
-      font-size: 14px;
-    }
-  </style>
+footer{
+  border-top:1px solid #222;
+  padding:60px 20px;
+  text-align:center;
+  color:#777;
+  font-size:14px;
+}
+</style>
 </head>
 
 <body>
 
 <header>
   <h1>HNReserve</h1>
-  <p>Digital Asset Management & Market Advisory</p>
+  <p>Discretionary Digital Asset Allocation</p>
 </header>
 
 <section>
-  <h2>About HNReserve</h2>
+  <h2>Overview</h2>
   <p>
-    HNReserve is a privately operated digital asset management group focused on
-    cryptocurrency, equity, and gold markets. The operation is built around
-    disciplined execution, capital protection, and controlled risk exposure
-    rather than speculative return targets.
+    HNReserve operates as a private capital group focused on liquid markets including
+    digital assets, equities, and gold. Capital deployment is selective, risk-aware,
+    and condition-dependent.
   </p>
 </section>
 
 <section>
   <h2>Investment Mandate</h2>
-  <p>
-    HNReserve operates a discretionary trading mandate. Capital is deployed only
-    when market structure, liquidity conditions, and risk parameters align.
-    No trades are forced, and cash is considered a valid position.
-  </p>
-</section>
-
-<section>
-  <h2>Risk Management Framework</h2>
   <div class="grid">
     <div class="card">
-      <h3>Capital Preservation</h3>
-      <p>
-        Protection of capital takes priority over return generation. Risk is
-        controlled before opportunity is considered.
-      </p>
+      <h3>Market Scope</h3>
+      <p>Cryptocurrency, equity indices, and gold in liquid conditions.</p>
     </div>
-
     <div class="card">
-      <h3>Position Sizing</h3>
-      <p>
-        Exposure is scaled based on volatility, liquidity, and market conditions.
-        No single position dominates overall risk.
-      </p>
+      <h3>Execution Style</h3>
+      <p>Discretionary execution based on structure and volatility.</p>
     </div>
-
     <div class="card">
-      <h3>Drawdown Awareness</h3>
-      <p>
-        Risk is reduced during unfavorable conditions. Activity is adjusted to
-        preserve capital during drawdown periods.
-      </p>
+      <h3>Capital Philosophy</h3>
+      <p>Preservation precedes return generation.</p>
     </div>
   </div>
 </section>
 
 <section>
-  <h2>Services</h2>
+  <h2>Operational Principles</h2>
+  <p>
+    • No leverage guarantees<br>
+    • No constant market exposure<br>
+    • Cash is considered an active position
+  </p>
+</section>
 
+<section>
+  <h2>Communication Policy</h2>
+  <p>
+    • Telegram only<br>
+    • No unsolicited direct messages<br>
+    • Verification required before access
+  </p>
+</section>
+
+<section>
+  <h2>Capital Constraints</h2>
+  <p>
+    • Limited intake capacity<br>
+    • Right to refuse capital<br>
+    • Capacity-based scaling only
+  </p>
+</section>
+
+<section>
+  <h2>Access</h2>
   <div class="grid">
     <div class="card">
-      <h3>Trading Calls Access</h3>
-      <p>
-        Market-driven trade ideas shared for educational and informational purposes.
-        No execution is automated or guaranteed.
-      </p>
+      <h3>Market Commentary Access</h3>
+      <p>Trade ideas and market notes.</p>
       <div class="price">250 USDT</div>
-      <a href="#payment" class="btn">View Payment Instructions</a>
+      <a class="btn" href="payment.html">Proceed</a>
     </div>
-
     <div class="card">
-      <h3>Managed Capital Allocation</h3>
-      <p>
-        Capital is traded within a controlled framework and reviewed on a monthly
-        cycle. Participation requires acknowledgment of risk.
-      </p>
+      <h3>Managed Allocation</h3>
+      <p>Capital allocated with monthly evaluation.</p>
       <div class="price">Minimum 800 USDT</div>
-      <a href="#payment" class="btn">Begin Onboarding</a>
+      <a class="btn" href="payment.html">Begin</a>
     </div>
-  </div>
-</section>
-
-<section>
-  <h2>Performance Approach</h2>
-  <p>
-    HNReserve does not publish fixed returns, percentages, or projections.
-    Performance is evaluated internally on a periodic basis and is influenced by
-    market conditions, volatility, and risk exposure.
-  </p>
-</section>
-
-<section>
-  <h2>Client Onboarding Process</h2>
-  <div class="grid">
-    <div class="card">
-      <h3>1. Review Disclosures</h3>
-      <p>Clients review service scope, operating terms, and risk disclosures.</p>
-    </div>
-
-    <div class="card">
-      <h3>2. Capital Transfer</h3>
-      <p>USDT is sent manually to the official wallet address.</p>
-    </div>
-
-    <div class="card">
-      <h3>3. Proof Submission</h3>
-      <p>Transaction proof is submitted via Telegram for verification.</p>
-    </div>
-
-    <div class="card">
-      <h3>4. Activation</h3>
-      <p>Access or allocation begins after confirmation.</p>
-    </div>
-  </div>
-</section>
-
-<section id="payment">
-  <h2>Payment Instructions</h2>
-  <p>
-    Payments are accepted exclusively in <strong>USDT on the Solana (SPL) network</strong>.
-    Only USDT should be sent. Assets sent incorrectly may be unrecoverable.
-  </p>
-
-  <div class="box">
-    <strong>Official Wallet Address (USDT – Solana SPL):</strong><br><br>
-    7KhAMz4MYE4GLL2iYRUyBL25yM1TBttqZdM7ug2RGHbS
-  </div>
-
-  <a class="btn secondary" href="https://t.me/cdgmarket" target="_blank">
-    Submit Proof via Telegram
-  </a>
-</section>
-
-<section>
-  <h2>Trust & Anti-Scam Notice</h2>
-  <div class="legal">
-    <p>
-      HNReserve will never request private keys, recovery phrases, passwords, or
-      remote access. Communication occurs only through the official Telegram account.
-      We do not initiate unsolicited direct messages.
-    </p>
-  </div>
-</section>
-
-<section>
-  <h2>Risk Disclosure</h2>
-  <div class="legal">
-    <p>
-      Trading and investing involve substantial risk and may result in partial or
-      total loss of capital. Past outcomes do not indicate future results.
-      Participation is voluntary and undertaken at the client’s own discretion.
-    </p>
   </div>
 </section>
 
 <footer>
-  © 2025 HNReserve. All Rights Reserved.
+© 2025 HNReserve. All Rights Reserved.
 </footer>
 
 </body>
