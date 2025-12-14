@@ -3,56 +3,196 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HNReserve | Payment</title>
+<title>HNReserve | Application & Payment</title>
 
 <style>
+:root{
+  --bg:#000;
+  --fg:#fff;
+  --muted:#9c9c9c;
+  --border:rgba(255,255,255,.10);
+  --soft:rgba(255,255,255,.05);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
 body{
   font-family:Inter,system-ui,sans-serif;
-  background:#000;
-  color:#fff;
+  background:var(--bg);
+  color:var(--fg);
+  line-height:1.6;
+  overflow-x:hidden;
 }
-.container{
-  max-width:520px;
-  margin:90px auto;
-  padding:40px;
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.04);
-  border-radius:20px;
+
+/* GRID BACKGROUND */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:
+    linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
+  background-size:60px 60px;
+  z-index:-1;
+}
+
+/* CONTAINER */
+.wrapper{
+  max-width:560px;
+  margin:80px auto;
+  padding:0 18px;
+}
+
+/* CARD */
+.card{
+  border:1px solid var(--border);
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border-radius:22px;
+  padding:36px;
+  box-shadow:0 40px 120px rgba(0,0,0,.6);
+}
+
+/* HEAD */
+h1{
+  font-size:30px;
+  margin-bottom:8px;
+}
+.subtitle{
+  color:var(--muted);
+  font-size:14px;
+  margin-bottom:28px;
+}
+
+/* FORM */
+input,select{
+  width:100%;
+  padding:14px 16px;
+  margin-bottom:14px;
+  background:#000;
+  border:1px solid var(--border);
+  border-radius:12px;
+  color:#fff;
+  font-size:14px;
+}
+input:focus,select:focus{
+  outline:none;
+  border-color:#fff;
+}
+
+/* BUTTON */
+button{
+  width:100%;
+  margin-top:10px;
+  padding:15px;
+  background:#fff;
+  color:#000;
+  border:none;
+  border-radius:12px;
+  font-weight:600;
+  cursor:pointer;
+  transition:.25s;
+}
+button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 40px rgba(255,255,255,.25);
+}
+
+/* PAYMENT BOX */
+.payment{
+  margin-top:26px;
+  padding:22px;
+  border-radius:16px;
+  background:var(--soft);
+  border:1px solid var(--border);
   text-align:center;
 }
 .wallet{
-  word-break:break-all;
-  background:#000;
+  margin:14px 0;
   padding:14px;
-  border-radius:10px;
-  margin:16px 0;
+  background:#000;
+  border-radius:12px;
+  word-break:break-all;
+  font-size:13px;
 }
-a{color:#fff}
+
+/* ANIMATIONS */
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity .8s ease, transform .8s ease;
+}
+.reveal.active{
+  opacity:1;
+  transform:none;
+}
+
+/* MOBILE */
+@media(max-width:520px){
+  .card{padding:28px}
+  h1{font-size:26px}
+}
 </style>
 </head>
 
 <body>
 
-<div class="container">
-  <h1>Payment Instructions</h1>
+<div class="wrapper">
+  <div class="card reveal">
 
-  <p>Send <strong>USDT (Solana)</strong> to:</p>
+    <h1>Application Form</h1>
+    <div class="subtitle">
+      Access is limited. Applications are reviewed manually.
+    </div>
 
-  <div class="wallet">
-    7KhAMz4MYE4GLL2iYRUyBL25yM1TBttqZdM7ug2RGHbS
+    <!-- APPLICATION FORM (UI ONLY) -->
+    <input type="text" placeholder="Full Name">
+    <input type="text" placeholder="Telegram Username">
+    <select>
+      <option>Market Commentary</option>
+      <option>Managed Allocation</option>
+    </select>
+    <input type="number" placeholder="Intended Capital (USDT)">
+
+    <button onclick="showPayment()">Proceed to Payment</button>
+
+    <!-- PAYMENT SECTION -->
+    <div id="paymentBox" class="payment reveal" style="display:none">
+      <p>Send <strong>USDT (Solana)</strong> to:</p>
+
+      <div class="wallet">
+        7KhAMz4MYE4GLL2iYRUyBL25yM1TBttqZdM7ug2RGHbS
+      </div>
+
+      <p style="font-size:13px;color:var(--muted)">
+        After payment, message
+        <a href="https://t.me/cdgmarket" target="_blank" style="color:#fff">@cdgmarket</a>
+        with proof.
+      </p>
+    </div>
+
   </div>
-
-  <p>
-    After payment, message
-    <a href="https://t.me/cdgmarket" target="_blank">@cdgmarket</a>
-    with proof.
-  </p>
-
-  <p style="font-size:12px;color:#aaa;margin-top:16px">
-    Applications are reviewed manually.  
-    No automatic confirmations.
-  </p>
 </div>
+
+<script>
+/* SHOW PAYMENT */
+function showPayment(){
+  const box=document.getElementById("paymentBox");
+  box.style.display="block";
+  setTimeout(()=>box.classList.add("active"),50);
+}
+
+/* SCROLL REVEAL (MOBILE SAFE) */
+const reveals=document.querySelectorAll(".reveal");
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add("active");
+    }
+  });
+},{threshold:0.15});
+
+reveals.forEach(r=>obs.observe(r));
+</script>
 
 </body>
 </html>
