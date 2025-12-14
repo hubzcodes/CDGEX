@@ -23,7 +23,7 @@ body{
   line-height:1.6;
 }
 
-/* BACKGROUND GRID */
+/* GRID BACKGROUND */
 body::before{
   content:"";
   position:fixed;
@@ -40,16 +40,14 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:22px 30px;
+  padding:20px;
   border-bottom:1px solid var(--border);
 }
-nav strong{
-  letter-spacing:2px;
-}
+nav strong{letter-spacing:2px}
 nav a{
   color:var(--muted);
   text-decoration:none;
-  margin-left:22px;
+  margin-left:18px;
   font-size:14px;
 }
 
@@ -57,31 +55,30 @@ nav a{
 .hero{
   max-width:1200px;
   margin:auto;
-  padding:100px 20px 80px;
+  padding:90px 20px;
   display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:60px;
+  grid-template-columns:1fr 1fr;
+  gap:50px;
 }
 .hero h1{
-  font-size:56px;
+  font-size:52px;
   line-height:1.1;
-  margin-bottom:20px;
 }
 .hero p{
   color:var(--muted);
-  max-width:520px;
+  margin-top:16px;
 }
 .hero-box{
   border:1px solid var(--border);
   background:var(--soft);
-  padding:36px;
+  padding:32px;
   border-radius:18px;
 }
 
 /* BUTTON */
 .btn{
   display:inline-block;
-  margin-top:26px;
+  margin-top:24px;
   padding:14px 22px;
   background:#fff;
   color:#000;
@@ -90,7 +87,7 @@ nav a{
   text-decoration:none;
 }
 
-/* METRICS STRIP */
+/* METRICS */
 .metrics{
   border-top:1px solid var(--border);
   border-bottom:1px solid var(--border);
@@ -100,12 +97,12 @@ nav a{
   max-width:1200px;
   margin:auto;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:26px;
 }
 .metric{
   border-left:2px solid #fff;
-  padding-left:16px;
+  padding-left:14px;
 }
 .metric span{
   font-size:12px;
@@ -113,7 +110,7 @@ nav a{
 }
 .metric strong{
   display:block;
-  font-size:22px;
+  font-size:20px;
   margin-top:6px;
 }
 
@@ -121,56 +118,41 @@ nav a{
 section{
   max-width:1200px;
   margin:auto;
-  padding:90px 20px;
+  padding:80px 20px;
 }
 section h2{
-  font-size:34px;
-  margin-bottom:24px;
+  font-size:32px;
+  margin-bottom:20px;
 }
 
 /* CARDS */
 .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:26px;
 }
 .card{
   border:1px solid var(--border);
   background:var(--soft);
-  border-radius:18px;
-  padding:34px;
-}
-.card span{
-  font-size:12px;
-  color:var(--muted);
-}
-.card h3{
-  margin:10px 0;
-}
-
-/* STEPS */
-.steps{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:26px;
-}
-.step{
-  border:1px solid var(--border);
-  padding:30px;
   border-radius:16px;
-}
-.step strong{
-  font-size:13px;
-  color:var(--muted);
+  padding:30px;
 }
 
-/* FOOTER */
-footer{
-  border-top:1px solid var(--border);
-  padding:50px 20px;
-  text-align:center;
-  color:#777;
-  font-size:13px;
+/* TERMS */
+.terms p{
+  font-size:14px;
+  color:#cfcfcf;
+  margin-bottom:14px;
+}
+
+/* MOBILE FIX */
+@media(max-width:900px){
+  .hero{
+    grid-template-columns:1fr;
+    padding:70px 20px;
+  }
+  .hero h1{font-size:40px}
+  nav div{display:none}
 }
 </style>
 </head>
@@ -181,8 +163,6 @@ footer{
   <strong>HNRESERVE</strong>
   <div>
     <a href="#programs">Programs</a>
-    <a href="#process">Process</a>
-    <a href="#rules">Rules</a>
     <a href="payment.html">Payment</a>
   </div>
 </nav>
@@ -191,41 +171,30 @@ footer{
   <div>
     <h1>Structured Capital Allocation</h1>
     <p>
-      HNReserve provides selective capital access through a controlled
-      evaluation and allocation framework across liquid markets.
+      HNReserve operates a discretionary allocation framework across
+      crypto, equity, and commodity markets.
     </p>
-    <a class="btn" href="#programs">Explore Programs</a>
+    <a class="btn" href="payment.html">Proceed to Payment</a>
   </div>
 
   <div class="hero-box">
     <p>
-      Deployment is based on liquidity, structure, and risk conditions—not
-      constant activity.
+      Capital is deployed selectively under conditions that historically
+      support high capital efficiency.
     </p>
-    <p style="margin-top:14px;">
-      Capital preservation and disciplined execution form the foundation.
+    <p>
+      Target performance environments may reach elevated efficiency levels,
+      subject to market conditions. Returns are variable and not guaranteed.
     </p>
   </div>
 </div>
 
 <div class="metrics">
   <div class="metrics-inner">
-    <div class="metric">
-      <span>MARKETS</span>
-      <strong>Crypto · Equity · Gold</strong>
-    </div>
-    <div class="metric">
-      <span>EXPOSURE</span>
-      <strong>Selective</strong>
-    </div>
-    <div class="metric">
-      <span>SCALING</span>
-      <strong>Capacity-Based</strong>
-    </div>
-    <div class="metric">
-      <span>COMMUNICATION</span>
-      <strong>Telegram Only</strong>
-    </div>
+    <div class="metric"><span>MARKETS</span><strong>Crypto · Equity · Gold</strong></div>
+    <div class="metric"><span>STRATEGY</span><strong>Selective Exposure</strong></div>
+    <div class="metric"><span>COMMUNICATION</span><strong>Telegram Only</strong></div>
+    <div class="metric"><span>CAPITAL</span><strong>Capacity-Based</strong></div>
   </div>
 </div>
 
@@ -234,67 +203,31 @@ footer{
 
   <div class="cards">
     <div class="card">
-      <span>COMMENTARY ACCESS</span>
-      <h3>Market Insights</h3>
-      <p>Structured trade commentary and market context.</p>
-      <p><strong>250 USDT</strong></p>
+      <h3>Market Commentary</h3>
+      <p>Structured insights and trade context.</p>
+      <strong>250 USDT</strong><br>
+      <a class="btn" href="payment.html">Pay Now</a>
     </div>
 
     <div class="card">
-      <span>MANAGED ALLOCATION</span>
-      <h3>Capital Deployment</h3>
-      <p>Discretionary allocation with periodic review.</p>
-      <p><strong>Minimum 800 USDT</strong></p>
-    </div>
-
-    <div class="card">
-      <span>EVALUATION PATHWAY</span>
-      <h3>Capital Observation</h3>
-      <p>Execution-based review for potential internal allocation.</p>
+      <h3>Managed Allocation</h3>
+      <p>Discretionary deployment with review.</p>
+      <strong>Minimum 800 USDT</strong><br>
+      <a class="btn" href="payment.html">Pay Now</a>
     </div>
   </div>
 </section>
 
-<section id="process">
-  <h2>Evaluation Process</h2>
+<section class="terms">
+  <h2>Terms & Conditions</h2>
 
-  <div class="steps">
-    <div class="step">
-      <strong>STEP 01</strong>
-      <p>Application & verification</p>
-    </div>
-    <div class="step">
-      <strong>STEP 02</strong>
-      <p>Observation period</p>
-    </div>
-    <div class="step">
-      <strong>STEP 03</strong>
-      <p>Risk & execution review</p>
-    </div>
-    <div class="step">
-      <strong>STEP 04</strong>
-      <p>Conditional allocation</p>
-    </div>
-  </div>
-</section>
-
-<section id="rules">
-  <h2>Operating Rules</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>No Guarantees</h3>
-      <p>No profit, leverage, or scaling guarantees.</p>
-    </div>
-    <div class="card">
-      <h3>No Constant Exposure</h3>
-      <p>Capital is deployed only when conditions justify risk.</p>
-    </div>
-    <div class="card">
-      <h3>Right to Refuse</h3>
-      <p>HNReserve reserves the right to decline capital.</p>
-    </div>
-  </div>
+  <p>HNReserve does not offer guaranteed returns, fixed income products, or risk-free investment vehicles.</p>
+  <p>Market participation involves substantial risk, including the possible loss of capital.</p>
+  <p>Capital deployment frequency, duration, and exposure levels vary based on market conditions.</p>
+  <p>HNReserve reserves the right to refuse, limit, or discontinue capital allocation at its discretion.</p>
+  <p>Past performance, whether explicit or implied, does not predict future results.</p>
+  <p>All communications occur exclusively through official Telegram channels.</p>
+  <p>Participants are responsible for understanding jurisdictional and regulatory considerations.</p>
 </section>
 
 <footer>
