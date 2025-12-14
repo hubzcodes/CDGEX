@@ -1,78 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HNReserve | Payment</title>
 
 <style>
-:root{
-  --bg:#000;
-  --fg:#fff;
-  --muted:#aaa;
-  --border:rgba(255,255,255,.08);
-  --soft:rgba(255,255,255,.04);
-}
-
-*{margin:0;padding:0;box-sizing:border-box}
-
 body{
   font-family:Inter,system-ui,sans-serif;
-  background:var(--bg);
-  color:var(--fg);
+  background:#000;
+  color:#fff;
 }
-
-/* GRID */
-body::before{
-  content:"";
-  position:fixed;
-  inset:0;
-  background:
-    linear-gradient(rgba(255,255,255,.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,.02) 1px, transparent 1px);
-  background-size:60px 60px;
-  z-index:-1;
-}
-
 .container{
   max-width:520px;
   margin:90px auto;
   padding:40px;
-  border:1px solid var(--border);
-  background:var(--soft);
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.04);
   border-radius:20px;
   text-align:center;
 }
-
-h1{
-  font-size:26px;
-  margin-bottom:20px;
-}
-
 .wallet{
   word-break:break-all;
   background:#000;
   padding:14px;
   border-radius:10px;
-  border:1px solid var(--border);
   margin:16px 0;
 }
-
-img{
-  max-width:220px;
-  margin:20px auto;
-  display:block;
-}
-
-p{
-  color:var(--muted);
-  font-size:14px;
-}
-
-a{
-  color:#fff;
-  text-decoration:underline;
-}
+a{color:#fff}
 </style>
 </head>
 
@@ -87,17 +42,15 @@ a{
     7KhAMz4MYE4GLL2iYRUyBL25yM1TBttqZdM7ug2RGHbS
   </div>
 
-  <img src="qr.png" alt="USDT Solana QR Code" />
-
   <p>
     After payment, message
     <a href="https://t.me/cdgmarket" target="_blank">@cdgmarket</a>
-    with transaction proof.
+    with proof.
   </p>
 
-  <p style="margin-top:16px;font-size:12px;">
-    Only USDT (SPL) accepted.  
-    Applications are reviewed manually.
+  <p style="font-size:12px;color:#aaa;margin-top:16px">
+    Applications are reviewed manually.  
+    No automatic confirmations.
   </p>
 </div>
 
