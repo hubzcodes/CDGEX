@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CDEX – Professional Trading Company</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+    }
+
+    body {
+      background: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 40px 20px;
+      text-align: center;
+      border-bottom: 1px solid #222;
+    }
+
+    header h1 {
+      font-size: 48px;
+      letter-spacing: 2px;
+    }
+
+    header p {
+      color: #aaa;
+      margin-top: 10px;
+    }
+
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      border: 1px solid #222;
+      padding: 30px;
+      border-radius: 12px;
+      background: #0a0a0a;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 24px;
+      margin: 15px 0;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      background: #fff;
+      color: #000;
+      border: none;
+      font-size: 16px;
+      font-weight: bold;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ddd;
+    }
+
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      border-top: 1px solid #222;
+      color: #777;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>CDEX</h1>
+  <p>Professional Crypto • Stock • Gold Trading</p>
+</header>
+
+<section>
+  <h2>About Us</h2>
+  <p>
+    CDEX is a professional trading company focused on Crypto, Stock, and Gold markets.
+    We provide high-quality trading calls and managed investment services using disciplined strategies
+    and risk management.
+  </p>
+</section>
+
+<section>
+  <h2>Our Services</h2>
+
+  <div class="services">
+
+    <!-- CALLS -->
+    <div class="card">
+      <h3>Trading Calls</h3>
+      <p>High-quality market calls for crypto, stocks, and gold.</p>
+      <div class="price">$250 USDT</div>
+
+      <button onclick="payCalls()">Pay with USDT</button>
+    </div>
+
+    <!-- INVEST -->
+    <div class="card">
+      <h3>Managed Investment</h3>
+      <p>
+        Invest with us and let our team trade on your behalf.
+        Monthly profit distribution.
+      </p>
+      <div class="price">Minimum $800 USDT</div>
+
+      <button onclick="payInvest()">Invest with USDT</button>
+    </div>
+
+  </div>
+</section>
+
+<section>
+  <h2>Payment Method</h2>
+  <p>
+    All payments are accepted in <strong>USDT</strong>.
+    After payment, please contact our support team with your transaction ID.
+  </p>
+</section>
+
+<footer>
+  © 2025 CDEX. All Rights Reserved.
+</footer>
+
+<script>
+  // ⚠️ REPLACE WITH YOUR REAL USDT WALLET ADDRESS
+  const WALLET = "YOUR_USDT_WALLET_ADDRESS";
+
+  function payCalls() {
+    window.location.href =
+      "https://link.trustwallet.com/send?coin=195&address=" +
+      WALLET +
+      "&amount=250";
+  }
+
+  function payInvest() {
+    window.location.href =
+      "https://link.trustwallet.com/send?coin=195&address=" +
+      WALLET +
+      "&amount=800";
+  }
+</script>
+
+</body>
+</html>
