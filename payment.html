@@ -24,6 +24,7 @@ body{
 }
 h1{font-size:28px;margin-bottom:10px}
 p{color:#aaa;font-size:14px;line-height:1.6}
+
 .wallet{
   margin:18px 0;
   padding:14px;
@@ -31,7 +32,9 @@ p{color:#aaa;font-size:14px;line-height:1.6}
   border-radius:10px;
   word-break:break-all;
   font-size:13px;
+  border:1px solid rgba(255,255,255,.08);
 }
+
 button{
   width:100%;
   padding:14px;
@@ -41,18 +44,47 @@ button{
   border:none;
   border-radius:10px;
   font-weight:600;
+  cursor:pointer;
 }
+
 .qr{
   width:180px;
   display:block;
   margin:22px auto;
   border-radius:14px;
 }
+
 label{
   display:flex;
   gap:10px;
   font-size:13px;
   margin-top:16px;
+  color:#ccc;
+}
+
+/* TELEGRAM BUTTON */
+.tg-btn{
+  margin-top:18px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.15);
+  background:transparent;
+  color:#fff;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
+}
+.tg-btn:hover{
+  background:rgba(255,255,255,.08);
+}
+.tg-btn svg{
+  width:20px;
+  height:20px;
+  fill:#fff;
 }
 </style>
 </head>
@@ -63,8 +95,8 @@ label{
   <div class="card">
     <h1>Payment Instructions</h1>
     <p>
-      Review the terms below and complete payment using USDT
-      on the Solana network.
+      Complete your payment using <strong>USDT on Solana network</strong>.
+      After sending, contact us on Telegram with transaction proof.
     </p>
 
     <label>
@@ -72,24 +104,33 @@ label{
       I acknowledge market risk and agree to the allocation terms.
     </label>
 
-    <img src="qr.png" class="qr">
+    <!-- QR CODE -->
+    <img src="qr.png" class="qr" alt="USDT Solana QR">
 
+    <!-- WALLET -->
     <div class="wallet" id="wallet">
       7KhAMz4MYE4GLL2iYRUyBL25yM1TBttqZdM7ug2RGHbS
     </div>
 
-    <button onclick="copy()">Copy Wallet Address</button>
+    <button onclick="copyWallet()">Copy Wallet Address</button>
 
-    <p style="margin-top:14px">
-      After payment, message
-      <a href="https://t.me/cdgmarket" target="_blank" style="color:#fff">@cdgmarket</a>
-      with transaction proof.
+    <!-- TELEGRAM BUTTON -->
+    <a class="tg-btn" href="https://t.me/cdgmarket" target="_blank" onclick="return checkAgree()">
+      <svg viewBox="0 0 24 24">
+        <path d="M9.993 15.674l-.397 5.588c.568 0 .814-.244 1.108-.536l2.66-2.532 5.507 4.024c1.01.556 1.726.263 1.995-.935l3.617-16.91h.001c.316-1.47-.53-2.05-1.514-1.68L1.37 9.33c-1.43.558-1.41 1.36-.244 1.722l5.996 1.87L19.93 5.29c.61-.404 1.165-.18.708.223"/>
+      </svg>
+      Message us on Telegram
+    </a>
+
+    <p style="margin-top:14px;font-size:13px;color:#777">
+      Do not send funds before reviewing the agreement.
+      Verification is required before allocation.
     </p>
   </div>
 </div>
 
 <script>
-function copy(){
+function copyWallet(){
   if(!document.getElementById("agree").checked){
     alert("Please accept the agreement first.");
     return;
@@ -98,6 +139,14 @@ function copy(){
     document.getElementById("wallet").innerText
   );
   alert("Wallet address copied");
+}
+
+function checkAgree(){
+  if(!document.getElementById("agree").checked){
+    alert("Please accept the agreement first.");
+    return false;
+  }
+  return true;
 }
 </script>
 
