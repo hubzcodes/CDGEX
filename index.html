@@ -9,9 +9,9 @@
 :root{
   --bg:#000;
   --fg:#fff;
-  --muted:#b5b5b5;
-  --border:rgba(255,255,255,.10);
-  --soft:rgba(255,255,255,.05);
+  --muted:#b8b8b8;
+  --border:rgba(255,255,255,.08);
+  --soft:rgba(255,255,255,.04);
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
@@ -23,7 +23,7 @@ body{
   line-height:1.65;
 }
 
-/* GRID */
+/* GRID BACKGROUND */
 body::before{
   content:"";
   position:fixed;
@@ -40,23 +40,27 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:22px;
+  padding:22px 28px;
   border-bottom:1px solid var(--border);
 }
-nav strong{letter-spacing:2px}
+nav strong{
+  letter-spacing:2px;
+  font-size:15px;
+}
 nav a{
   color:var(--muted);
+  margin-left:22px;
   text-decoration:none;
-  margin-left:20px;
+  font-size:14px;
 }
 
 /* HERO */
 .hero{
   max-width:1200px;
   margin:auto;
-  padding:110px 20px;
+  padding:110px 24px;
   display:grid;
-  grid-template-columns:1.2fr .8fr;
+  grid-template-columns:1.1fr .9fr;
   gap:60px;
 }
 .hero h1{
@@ -64,58 +68,42 @@ nav a{
   line-height:1.1;
 }
 .hero p{
+  margin-top:18px;
   color:var(--muted);
-  margin-top:16px;
-  max-width:520px;
+  max-width:560px;
 }
 .hero-box{
   border:1px solid var(--border);
   background:var(--soft);
-  padding:36px;
+  padding:38px;
   border-radius:20px;
 }
 
 /* BUTTON */
 .btn{
   display:inline-block;
-  margin-top:26px;
-  padding:14px 26px;
+  margin-top:28px;
+  padding:14px 28px;
   background:#fff;
   color:#000;
   border-radius:12px;
   font-weight:600;
   text-decoration:none;
-  transition:.25s;
-}
-.btn:hover{
-  transform:translateY(-3px);
-  box-shadow:0 16px 40px rgba(255,255,255,.25);
 }
 
 /* SECTION */
 section{
   max-width:1200px;
   margin:auto;
-  padding:100px 20px;
+  padding:100px 24px;
 }
-.head{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  margin-bottom:30px;
+h2{
+  font-size:34px;
+  margin-bottom:26px;
 }
-.head svg{
-  width:26px;
-  stroke:#fff;
-  transition:.4s;
-}
-.head:hover svg{
-  transform:rotate(6deg) scale(1.15);
-}
-h2{font-size:34px}
 
-/* CARDS */
-.cards{
+/* GRID CARDS */
+.grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:28px;
@@ -125,11 +113,6 @@ h2{font-size:34px}
   background:var(--soft);
   border-radius:20px;
   padding:34px;
-  transition:.35s;
-}
-.card:hover{
-  transform:translateY(-8px);
-  border-color:#fff;
 }
 
 /* STRIP */
@@ -141,12 +124,12 @@ h2{font-size:34px}
 }
 .track{
   display:flex;
-  gap:36px;
+  gap:40px;
   animation:scroll 28s linear infinite;
 }
 .track div{
   border:1px solid var(--border);
-  padding:16px 26px;
+  padding:16px 28px;
   border-radius:14px;
   color:#aaa;
 }
@@ -154,21 +137,27 @@ h2{font-size:34px}
   to{transform:translateX(-50%)}
 }
 
-/* REVEAL */
-.reveal{
-  opacity:0;
-  transform:translateY(40px);
-  transition:1s;
+/* TRADINGVIEW */
+iframe{
+  width:100%;
+  height:320px;
+  border:0;
+  border-radius:14px;
 }
-.reveal.active{
-  opacity:1;
-  transform:none;
+
+/* FOOTER */
+footer{
+  border-top:1px solid var(--border);
+  padding:46px 24px;
+  text-align:center;
+  color:#777;
+  font-size:13px;
 }
 
 /* MOBILE */
 @media(max-width:900px){
   .hero{grid-template-columns:1fr}
-  .hero h1{font-size:42px}
+  .hero h1{font-size:40px}
   nav div{display:none}
 }
 </style>
@@ -179,73 +168,84 @@ h2{font-size:34px}
 <nav>
   <strong>HNRESERVE</strong>
   <div>
-    <a href="#programs">Programs</a>
+    <a href="#mandate">Mandate</a>
     <a href="#markets">Markets</a>
+    <a href="#programs">Programs</a>
     <a href="payment.html">Apply</a>
   </div>
 </nav>
 
-<div class="hero reveal">
+<!-- HERO -->
+<div class="hero">
   <div>
-    <h1>Structured Capital Allocation</h1>
+    <h1>Capital Allocation & Trade Execution</h1>
     <p>
-      HNReserve deploys capital across crypto, equities, and commodities
-      using disciplined execution and risk-first frameworks.
+      HNReserve is a discretionary capital allocator operating across
+      digital assets, global indices, and precious metals with
+      a strict risk-first mandate.
     </p>
-    <a class="btn" href="payment.html">Apply for Access</a>
+    <a class="btn" href="payment.html">Request Access</a>
   </div>
+
   <div class="hero-box">
-    Capital is preserved when conditions are unfavorable.
-    Exposure is taken only when risk asymmetry is justified.
+    Capital is deployed selectively.<br><br>
+    Exposure is reduced when conditions are unsuitable.<br><br>
+    Cash is treated as a strategic position.
   </div>
 </div>
 
+<!-- STRIP -->
 <div class="strip">
   <div class="track">
     <div>Crypto Markets</div>
     <div>Equities</div>
     <div>Gold</div>
     <div>On-Chain Settlement</div>
-    <div>Risk Management</div>
+    <div>Risk Control</div>
     <div>Crypto Markets</div>
   </div>
 </div>
 
-<section id="programs" class="reveal">
-  <div class="head">
-    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5">
-      <path d="M4 4h16v16H4z"/>
-    </svg>
-    <h2>Access Programs</h2>
+<!-- MANDATE -->
+<section id="mandate">
+  <h2>Operational Mandate</h2>
+  <div class="grid">
+    <div class="card">No leverage guarantees. Risk is adjusted dynamically.</div>
+    <div class="card">No constant exposure. Market participation is selective.</div>
+    <div class="card">Capital preservation takes priority over returns.</div>
   </div>
+</section>
 
-  <div class="cards">
+<!-- MARKETS -->
+<section id="markets">
+  <h2>Live Market Overview</h2>
+  <div class="grid">
+    <iframe src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT&theme=dark&hide_top_toolbar=1"></iframe>
+    <iframe src="https://s.tradingview.com/widgetembed/?symbol=OANDA:XAUUSD&theme=dark&hide_top_toolbar=1"></iframe>
+    <iframe src="https://s.tradingview.com/widgetembed/?symbol=OANDA:US30USD&theme=dark&hide_top_toolbar=1"></iframe>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section id="programs">
+  <h2>Access Programs</h2>
+  <div class="grid">
     <div class="card">
       <h3>Market Commentary</h3>
       <p>Structured trade ideas and market context.</p>
-      <strong>250 USDT</strong><br><br>
-      <a class="btn" href="payment.html">Apply</a>
+      <strong>250 USDT</strong>
     </div>
-
     <div class="card">
       <h3>Managed Allocation</h3>
-      <p>Discretionary capital deployment with monthly review.</p>
-      <strong>Minimum 800 USDT</strong><br><br>
-      <a class="btn" href="payment.html">Apply</a>
+      <p>Discretionary deployment with monthly review.</p>
+      <strong>Minimum 800 USDT</strong>
     </div>
   </div>
 </section>
 
-<footer style="border-top:1px solid var(--border);padding:40px;text-align:center;color:#777">
-© 2025 HNReserve
+<footer>
+© 2025 HNReserve — Capital allocation involves risk. No guarantees.
 </footer>
-
-<script>
-const obs=new IntersectionObserver(e=>{
-  e.forEach(i=>i.isIntersecting&&i.target.classList.add("active"))
-},{threshold:.15});
-document.querySelectorAll(".reveal").forEach(el=>obs.observe(el));
-</script>
 
 </body>
 </html>
