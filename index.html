@@ -8,32 +8,30 @@
 <meta name="description" content="Institutional-grade discretionary capital allocation across digital assets, equities, and commodities. Risk-first mandate with transparent execution.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --black: #0A0A0A;
-  --white: #FAFAFA;
-  --pure-black: #000000;
-  --pure-white: #FFFFFF;
-  --gray-50: #F7F7F7;
-  --gray-100: #EFEFEF;
-  --gray-200: #E0E0E0;
-  --gray-300: #C4C4C4;
-  --gray-400: #9E9E9E;
-  --gray-500: #707070;
-  --gray-600: #4A4A4A;
-  --gray-700: #2D2D2D;
-  --gray-800: #1A1A1A;
-  --gray-900: #0F0F0F;
-  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.05);
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.16);
-  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.24);
-  --shadow-2xl: 0 24px 64px rgba(0, 0, 0, 0.32);
-  --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
-  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --black: #000000;
+  --white: #FFFFFF;
+  --gray-50: #FAFAFA;
+  --gray-100: #F5F5F5;
+  --gray-200: #E5E5E5;
+  --gray-300: #D4D4D4;
+  --gray-400: #A3A3A3;
+  --gray-500: #737373;
+  --gray-600: #525252;
+  --gray-700: #404040;
+  --gray-800: #262626;
+  --gray-900: #171717;
+  
+  --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
 }
 
 * {
@@ -44,6 +42,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
@@ -54,549 +53,428 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-.bg-canvas {
+/* GEOMETRIC BACKGROUND */
+.bg-pattern {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: var(--white);
+  opacity: 0.4;
 }
 
 .bg-grid {
   position: absolute;
   inset: 0;
   background-image: 
-    linear-gradient(rgba(0,0,0,0.03) 1.5px, transparent 1.5px),
-    linear-gradient(90deg, rgba(0,0,0,0.03) 1.5px, transparent 1.5px);
-  background-size: 80px 80px;
-  animation: gridFloat 80s linear infinite;
-  opacity: 0.4;
+    linear-gradient(var(--gray-200) 1px, transparent 1px),
+    linear-gradient(90deg, var(--gray-200) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: gridMove 60s linear infinite;
 }
 
-@keyframes gridFloat {
-  from { transform: translate(0, 0); }
-  to { transform: translate(80px, 80px); }
+@keyframes gridMove {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
 }
 
-.bg-gradient-1 {
-  position: absolute;
-  top: -50%;
-  right: -20%;
-  width: 80%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(0,0,0,0.06) 0%, transparent 70%);
-  animation: float 20s ease-in-out infinite;
-}
-
-.bg-gradient-2 {
-  position: absolute;
-  bottom: -30%;
-  left: -10%;
-  width: 60%;
-  height: 80%;
-  background: radial-gradient(circle, rgba(0,0,0,0.04) 0%, transparent 70%);
-  animation: float 25s ease-in-out infinite reverse;
-}
-
-@keyframes float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(30px, -30px) scale(1.1); }
-}
-
-.bg-dots {
+.bg-gradient {
   position: absolute;
   inset: 0;
-  background-image: radial-gradient(circle, rgba(0,0,0,0.08) 1px, transparent 1px);
-  background-size: 30px 30px;
-  opacity: 0.3;
+  background: radial-gradient(circle at 20% 50%, rgba(0, 0, 0, 0.02) 0%, transparent 50%),
+              radial-gradient(circle at 80% 80%, rgba(0, 0, 0, 0.03) 0%, transparent 50%);
 }
 
+/* NAVIGATION */
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 24px 64px;
-  background: rgba(250, 250, 250, 0.85);
-  backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 20px 48px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--gray-200);
   position: sticky;
   top: 0;
   z-index: 1000;
-  animation: navReveal 1s var(--ease-smooth);
-  box-shadow: var(--shadow-subtle);
+  animation: navSlide 0.8s var(--transition-smooth);
 }
 
-@keyframes navReveal {
-  from { transform: translateY(-100%); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+@keyframes navSlide {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.logo-mark {
-  width: 44px;
-  height: 44px;
-  background: var(--black);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  transition: all 0.4s var(--ease-smooth);
-}
-
-.logo-mark::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 100%);
-  transform: translateX(-100%) rotate(45deg);
-  transition: transform 0.6s var(--ease-smooth);
-}
-
-.logo-mark:hover::before {
-  transform: translateX(100%) rotate(45deg);
-}
-
-.logo-mark::after {
-  content: "H";
-  color: var(--white);
-  font-size: 24px;
-  font-weight: 900;
-  position: relative;
-  z-index: 1;
-}
-
-.logo-text {
-  font-size: 22px;
-  font-weight: 900;
+.logo {
+  font-size: 20px;
+  font-weight: 800;
   letter-spacing: -0.5px;
   color: var(--black);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: var(--black);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
 }
 
 .nav-links {
   display: flex;
-  gap: 8px;
+  gap: 4px;
   align-items: center;
 }
 
 .nav-links a {
   color: var(--gray-600);
   text-decoration: none;
-  font-size: 15px;
-  font-weight: 600;
-  padding: 12px 24px;
-  border-radius: 10px;
-  transition: all 0.3s var(--ease-smooth);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: all 0.3s var(--transition-smooth);
   position: relative;
-  overflow: hidden;
-}
-
-.nav-links a::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--gray-100);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s var(--ease-smooth);
-  z-index: -1;
 }
 
 .nav-links a:hover {
   color: var(--black);
+  background: var(--gray-100);
 }
 
-.nav-links a:hover::before {
-  transform: scaleX(1);
+.nav-links a.cta {
+  background: var(--black);
+  color: var(--white);
+  margin-left: 12px;
 }
 
-.nav-cta {
-  background: var(--black) !important;
-  color: var(--white) !important;
-  margin-left: 16px;
-  box-shadow: var(--shadow-sm);
-}
-
-.nav-cta::before {
-  background: var(--gray-900) !important;
-}
-
-.nav-cta:hover {
+.nav-links a.cta:hover {
+  background: var(--gray-800);
   transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
 }
 
+/* HERO SECTION */
 .hero {
-  max-width: 1440px;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 140px 64px 120px;
+  padding: 120px 48px 100px;
   display: grid;
-  grid-template-columns: 1.4fr 1fr;
-  gap: 100px;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 80px;
   align-items: center;
 }
 
 .hero-content {
-  animation: heroFadeIn 1.2s var(--ease-smooth) 0.3s both;
+  animation: fadeInUp 1s var(--transition-smooth) 0.2s both;
 }
 
-@keyframes heroFadeIn {
-  from { opacity: 0; transform: translateY(60px); }
-  to { opacity: 1; transform: translateY(0); }
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.hero-badge {
+.hero-label {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 10px 20px;
+  gap: 8px;
+  padding: 8px 16px;
   background: var(--black);
   color: var(--white);
-  border-radius: 30px;
-  font-size: 13px;
-  font-weight: 700;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
   letter-spacing: 0.5px;
   text-transform: uppercase;
-  margin-bottom: 40px;
-  box-shadow: var(--shadow-md);
-  animation: badgeFloat 3s ease-in-out infinite;
+  margin-bottom: 32px;
+  animation: slideInLeft 0.8s var(--transition-smooth) 0.4s both;
 }
 
-@keyframes badgeFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.status-dot {
-  width: 8px;
-  height: 8px;
+.hero-label::before {
+  content: "";
+  width: 6px;
+  height: 6px;
   background: var(--white);
   border-radius: 50%;
-  animation: pulse 2s ease-in-out infinite;
+  animation: blink 2s ease-in-out infinite;
 }
 
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(1.2); }
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
 }
 
 .hero h1 {
-  font-size: 88px;
-  line-height: 0.95;
-  font-weight: 900;
-  letter-spacing: -3px;
-  margin-bottom: 32px;
+  font-size: 72px;
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin-bottom: 28px;
   color: var(--black);
 }
 
-.hero h1 .highlight {
-  position: relative;
-  display: inline-block;
-}
-
-.hero h1 .highlight::after {
-  content: "";
-  position: absolute;
-  bottom: 8px;
-  left: 0;
-  right: 0;
-  height: 20px;
-  background: rgba(0, 0, 0, 0.1);
-  z-index: -1;
-  animation: highlightExpand 1.5s var(--ease-smooth) 0.8s both;
-}
-
-@keyframes highlightExpand {
-  from { width: 0; opacity: 0; }
-  to { width: 100%; opacity: 1; }
-}
-
 .hero-description {
-  font-size: 22px;
-  line-height: 1.65;
+  font-size: 20px;
+  line-height: 1.7;
   color: var(--gray-600);
-  max-width: 640px;
-  margin-bottom: 48px;
+  max-width: 600px;
+  margin-bottom: 40px;
 }
 
 .btn-group {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   align-items: center;
-  flex-wrap: wrap;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 20px 40px;
-  font-size: 16px;
-  font-weight: 700;
+  gap: 10px;
+  padding: 18px 36px;
+  font-size: 15px;
+  font-weight: 600;
   text-decoration: none;
-  border-radius: 14px;
-  transition: all 0.4s var(--ease-smooth);
-  position: relative;
-  overflow: hidden;
-}
-
-.btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 100%);
-  opacity: 0;
-  transition: opacity 0.4s var(--ease-smooth);
-}
-
-.btn:hover::before {
-  opacity: 1;
+  border-radius: 12px;
+  transition: all 0.3s var(--transition-smooth);
+  cursor: pointer;
+  border: none;
 }
 
 .btn-primary {
   background: var(--black);
   color: var(--white);
-  box-shadow: var(--shadow-lg);
 }
 
 .btn-primary:hover {
-  transform: translateY(-4px);
+  background: var(--gray-800);
+  transform: translateY(-3px);
   box-shadow: var(--shadow-xl);
 }
 
+.btn-primary:active {
+  transform: translateY(-1px);
+}
+
 .btn-secondary {
-  background: var(--white);
+  background: transparent;
   color: var(--black);
   border: 2px solid var(--gray-300);
-  box-shadow: var(--shadow-sm);
 }
 
 .btn-secondary:hover {
   border-color: var(--black);
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  background: var(--gray-50);
 }
 
-.btn-icon {
-  transition: transform 0.3s var(--ease-smooth);
+.arrow {
+  transition: transform 0.3s var(--transition-smooth);
 }
 
-.btn:hover .btn-icon {
+.btn:hover .arrow {
   transform: translateX(4px);
 }
 
-.hero-card {
+/* HERO STATS BOX */
+.hero-stats {
   background: var(--black);
   color: var(--white);
-  padding: 64px;
-  border-radius: 32px;
+  padding: 56px;
+  border-radius: 24px;
+  animation: fadeInUp 1s var(--transition-smooth) 0.4s both;
   position: relative;
   overflow: hidden;
-  animation: heroFadeIn 1.2s var(--ease-smooth) 0.5s both;
-  box-shadow: var(--shadow-2xl);
 }
 
-.hero-card::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-  animation: cardShine 10s linear infinite;
-}
-
-@keyframes cardShine {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-.card-stats {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-}
-
-.stat-box {
-  position: relative;
-  padding-bottom: 20px;
-  border-bottom: 2px solid rgba(255,255,255,0.15);
-}
-
-.stat-box::after {
-  content: "";
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--white);
-  transition: width 0.8s var(--ease-smooth);
-}
-
-.hero-card:hover .stat-box::after {
-  width: 60%;
-}
-
-.stat-number {
-  font-size: 56px;
-  font-weight: 900;
-  line-height: 1;
-  margin-bottom: 12px;
-  letter-spacing: -2px;
-}
-
-.stat-label {
-  font-size: 14px;
-  color: var(--gray-400);
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-}
-
-.marquee-section {
-  background: var(--black);
-  color: var(--white);
-  padding: 48px 0;
-  overflow: hidden;
-  position: relative;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.marquee-section::before {
+.hero-stats::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
-  animation: lineSlide 3s ease-in-out infinite;
+  background: linear-gradient(90deg, transparent, var(--white), transparent);
+  animation: shimmer 3s ease-in-out infinite;
 }
 
-@keyframes lineSlide {
-  0%, 100% { transform: translateX(-100%); }
-  50% { transform: translateX(100%); }
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
 }
 
-.marquee-track {
-  display: flex;
-  gap: 64px;
-  animation: marqueeScroll 40s linear infinite;
-  width: max-content;
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
 }
 
-.marquee-item {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-size: 16px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  white-space: nowrap;
-  padding: 16px 32px;
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 50px;
-  background: rgba(255,255,255,0.05);
-  transition: all 0.3s var(--ease-smooth);
-}
-
-.marquee-item:hover {
-  background: rgba(255,255,255,0.1);
-  transform: scale(1.05);
-}
-
-.marquee-icon {
-  font-size: 20px;
-}
-
-@keyframes marqueeScroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-section {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 140px 64px;
-}
-
-.section-header {
-  max-width: 900px;
-  margin-bottom: 80px;
-  text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.section-eyebrow {
-  font-size: 14px;
-  font-weight: 800;
-  color: var(--gray-500);
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 24px;
+.stat-item {
   position: relative;
-  display: inline-block;
 }
 
-.section-eyebrow::before,
-.section-eyebrow::after {
+.stat-item::after {
   content: "";
   position: absolute;
-  top: 50%;
+  bottom: -16px;
+  left: 0;
   width: 40px;
   height: 2px;
-  background: var(--gray-300);
+  background: var(--white);
 }
 
-.section-eyebrow::before {
-  right: calc(100% + 16px);
+.stat-number {
+  font-size: 42px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -1px;
 }
 
-.section-eyebrow::after {
-  left: calc(100% + 16px);
+.stat-label {
+  font-size: 13px;
+  color: var(--gray-400);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.section-title {
-  font-size: 64px;
-  font-weight: 900;
-  letter-spacing: -2px;
-  line-height: 1.1;
-  margin-bottom: 32px;
+/* TRUST INDICATORS */
+.trust-bar {
+  background: var(--gray-50);
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+  padding: 40px 48px;
+  overflow: hidden;
+}
+
+.trust-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 48px;
+}
+
+.trust-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.trust-items {
+  display: flex;
+  gap: 48px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  font-weight: 600;
   color: var(--black);
 }
 
+.trust-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--black);
+  color: var(--white);
+  border-radius: 4px;
+  font-size: 10px;
+}
+
+/* SECTIONS */
+section {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 120px 48px;
+}
+
+.section-header {
+  max-width: 800px;
+  margin-bottom: 64px;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-size: 52px;
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
 .section-description {
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1.7;
   color: var(--gray-600);
 }
 
+/* FEATURES GRID */
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 32px;
 }
 
 .feature-card {
   background: var(--white);
   border: 2px solid var(--gray-200);
-  border-radius: 28px;
-  padding: 56px;
-  transition: all 0.5s var(--ease-smooth);
+  border-radius: 20px;
+  padding: 48px;
+  transition: all 0.4s var(--transition-smooth);
   position: relative;
   overflow: hidden;
 }
@@ -604,415 +482,898 @@ section {
 .feature-card::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(0,0,0,0.05) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.5s var(--ease-smooth);
-}
-
-.feature-card::after {
-  content: "";
-  position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  height: 5px;
+  width: 100%;
+  height: 4px;
   background: var(--black);
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.5s var(--ease-smooth);
+  transition: transform 0.4s var(--transition-smooth);
 }
 
 .feature-card:hover {
   border-color: var(--black);
-  transform: translateY(-12px);
+  transform: translateY(-8px);
   box-shadow: var(--shadow-2xl);
 }
 
 .feature-card:hover::before {
-  opacity: 1;
-}
-
-.feature-card:hover::after {
   transform: scaleX(1);
 }
 
-.feature-number {
-  width: 80px;
-  height: 80px;
+.feature-icon {
+  width: 64px;
+  height: 64px;
   background: var(--black);
   color: var(--white);
-  border-radius: 20px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 36px;
-  font-weight: 900;
-  margin-bottom: 32px;
-  position: relative;
-  z-index: 1;
-  transition: all 0.5s var(--ease-bounce);
-  box-shadow: var(--shadow-md);
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  transition: transform 0.4s var(--transition-bounce);
 }
 
-.feature-card:hover .feature-number {
-  transform: scale(1.15) rotate(-5deg);
-  box-shadow: var(--shadow-lg);
+.feature-card:hover .feature-icon {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .feature-title {
-  font-size: 28px;
-  font-weight: 800;
-  margin-bottom: 16px;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 12px;
   letter-spacing: -0.5px;
-  position: relative;
-  z-index: 1;
 }
 
 .feature-description {
-  font-size: 16px;
-  line-height: 1.75;
+  font-size: 15px;
+  line-height: 1.7;
   color: var(--gray-600);
-  position: relative;
-  z-index: 1;
 }
 
-.markets-section {
-  background: var(--gray-50);
-  border-top: 1px solid var(--gray-200);
-  border-bottom: 1px solid var(--gray-200);
-}
-
+/* MARKETS SECTION */
 .markets-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 32px;
 }
 
-.market-card {
-  background: var(--white);
+.market-widget {
   border: 2px solid var(--gray-200);
-  border-radius: 28px;
+  border-radius: 20px;
   overflow: hidden;
-  transition: all 0.5s var(--ease-smooth);
-  box-shadow: var(--shadow-sm);
+  background: var(--white);
+  transition: all 0.4s var(--transition-smooth);
 }
 
-.market-card:hover {
+.market-widget:hover {
   border-color: var(--black);
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: var(--shadow-2xl);
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
 }
 
 .market-header {
-  padding: 32px;
-  background: linear-gradient(135deg, #1A1A1A 0%, #000000 100%);
-  color: var(--white);
+  padding: 24px;
+  background: var(--gray-50);
+  border-bottom: 1px solid var(--gray-200);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.market-header::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
-  opacity: 0;
-  transition: opacity 0.5s var(--ease-smooth);
-}
-
-.market-card:hover .market-header::before {
-  opacity: 1;
 }
 
 .market-name {
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  position: relative;
-  z-index: 1;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--black);
 }
 
 .market-badge {
-  font-size: 12px;
-  font-weight: 700;
-  padding: 6px 16px;
-  background: var(--white);
-  color: var(--black);
-  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  background: var(--black);
+  color: var(--white);
+  border-radius: 12px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  position: relative;
-  z-index: 1;
 }
 
 iframe {
   width: 100%;
-  height: 420px;
+  height: 400px;
   border: 0;
   display: block;
 }
 
+/* PROGRAMS SECTION */
 .programs-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 32px;
 }
 
 .program-card {
   background: var(--white);
   border: 3px solid var(--black);
-  border-radius: 32px;
-  padding: 64px;
+  border-radius: 24px;
+  padding: 56px;
+  transition: all 0.4s var(--transition-smooth);
   position: relative;
-  overflow: hidden;
-  transition: all 0.5s var(--ease-smooth);
-  box-shadow: var(--shadow-lg);
 }
 
-.program-card::before {
+.program-card::after {
   content: "";
   position: absolute;
-  top: -100%;
-  left: -100%;
-  width: 300%;
-  height: 300%;
-  background: radial-gradient(circle, rgba(0,0,0,0.05) 0%, transparent 70%);
-  transition: all 0.8s var(--ease-smooth);
+  inset: -3px;
+  border: 3px solid var(--black);
+  border-radius: 24px;
+  opacity: 0;
+  transition: all 0.4s var(--transition-smooth);
 }
 
 .program-card:hover {
-  transform: translateY(-12px) scale(1.02);
+  transform: translateY(-8px);
   box-shadow: var(--shadow-2xl);
 }
 
-.program-card:hover::before {
-  top: -50%;
-  left: -50%;
+.program-card:hover::after {
+  opacity: 1;
+  inset: -6px;
 }
 
-.program-tier {
+.program-badge {
   display: inline-block;
-  padding: 12px 24px;
+  padding: 8px 16px;
   background: var(--black);
   color: var(--white);
-  border-radius: 30px;
-  font-size: 13px;
-  font-weight: 800;
+  border-radius: 8px;
+  font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 32px;
-  position: relative;
-  z-index: 1;
-  box-shadow: var(--shadow-md);
+  margin-bottom: 24px;
 }
 
 .program-title {
-  font-size: 40px;
-  font-weight: 900;
-  margin-bottom: 20px;
-  letter-spacing: -1.5px;
-  position: relative;
-  z-index: 1;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: -1px;
 }
 
 .program-description {
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.7;
   color: var(--gray-600);
-  margin-bottom: 40px;
-  position: relative;
-  z-index: 1;
+  margin-bottom: 32px;
 }
 
 .program-features {
-  margin-bottom: 40px;
-  position: relative;
-  z-index: 1;
+  margin-bottom: 32px;
 }
 
 .program-feature {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 16px;
-  font-size: 15px;
+  gap: 12px;
+  margin-bottom: 12px;
+  font-size: 14px;
   color: var(--gray-700);
-  font-weight: 500;
 }
 
-.feature-check {
-  width: 24px;
-  height: 24px;
+.program-feature::before {
+  content: "✓";
+  font-weight: 800;
+  color: var(--black);
+  flex-shrink: 0;
+}
+
+.program-price {
+  font-size: 48px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.program-price small {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gray-500);
+}
+
+/* COMPLIANCE SECTION */
+.compliance {
+  background: var(--gray-50);
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+.compliance-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 48px;
+}
+
+.compliance-item {
+  display: flex;
+  gap: 20px;
+}
+
+.compliance-icon {
+  width: 48px;
+  height: 48px;
+  background: var(--black);
+  color: var(--white);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.compliance-content h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.compliance-content p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--gray-600);
+}
+
+/* FOOTER */
+footer {
+  background: var(--black);
+  color: var(--white);
+  padding: 80px 48px 40px;
+}
+
+.footer-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 64px;
+  margin-bottom: 64px;
+}
+
+.footer-brand {
+  max-width: 400px;
+}
+
+.footer-logo {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.footer-description {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--gray-400);
+  margin-bottom: 24px;
+}
+
+.footer-section h4 {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  color: var(--gray-300);
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-links a {
+  color: var(--gray-400);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s var(--transition-smooth);
+}
+
+.footer-links a:hover {
+  color: var(--white);
+}
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 40px;
+  border-top: 1px solid var(--gray-800);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  color: var(--gray-500);
+}
+
+.footer-legal {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-legal a {
+  color: var(--gray-500);
+  text-decoration: none;
+  transition: color 0.3s var(--transition-smooth);
+}
+
+.footer-legal a:hover {
+  color: var(--white);
+}
+
+/* SCROLL TO TOP */
+.scroll-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 56px;
+  height: 56px;
   background: var(--black);
   color: var(--white);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  font-size: 14px;
-  font-weight: 900;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s var(--transition-smooth);
+  box-shadow: var(--shadow-lg);
+  z-index: 999;
 }
 
-.program-price {
-  font-size: 56px;
-  font-weight: 900;
-  letter-spacing: -2px;
-  margin-bottom: 32px;
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  position: relative;
-  z-index: 1;
+.scroll-top.visible {
+  opacity: 1;
+  visibility: visible;
 }
 
-.program-price small {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--gray-500);
+.scroll-top:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
 }
 
-.program-cta {
-  width: 100%;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .stat-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
-.compliance-section {
-  background: var(--black);
-  color: var(--white);
-  border-top: 1px solid rgba(255,255,255,0.1);
+@media (max-width: 768px) {
+  nav {
+    padding: 16px 24px;
+  }
+  
+  .nav-links {
+    display: none;
+  }
+  
+  .hero {
+    padding: 80px 24px 60px;
+  }
+  
+  .hero h1 {
+    font-size: 48px;
+  }
+  
+  .hero-description {
+    font-size: 18px;
+  }
+  
+  .hero-stats {
+    padding: 40px;
+  }
+  
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  
+  .stat-number {
+    font-size: 32px;
+  }
+  
+  section {
+    padding: 80px 24px;
+  }
+  
+  .section-title {
+    font-size: 40px;
+  }
+  
+  .features-grid,
+  .markets-grid,
+  .programs-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
 }
 
-.compliance-section .section-eyebrow {
-  color: var(--gray-400);
+/* PERFORMANCE */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-.compliance-section .section-eyebrow::before,
-.compliance-section .section-eyebrow::after {
-  background: var(--gray-700);
+/* LOADING ANIMATION */
+.loading {
+  opacity: 0;
+  animation: fadeIn 0.6s var(--transition-smooth) forwards;
 }
 
-.compliance-section .section-title {
-  color: var(--white);
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
+</style>
 
-.compliance-section .section-description {
-  color: var(--gray-400);
-}
+</head>
 
-.compliance-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 48px;
-}
+<body>
 
-.compliance-item {
-  text-align: center;
-  padding: 48px 32px;
-  border: 1px solid rgba(255,255,255,0.15);
-  border-radius: 24px;
-  background: rgba(255,255,255,0.03);
-  transition: all 0.4s var(--ease-smooth);
-}
+<!-- BACKGROUND PATTERN -->
 
-.compliance-item:hover {
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.3);
-  transform: translateY(-8px);
-}
+<div class="bg-pattern">
+  <div class="bg-grid"></div>
+  <div class="bg-gradient"></div>
+</div>
 
-.compliance-icon {
-  width: 80px;
-  height: 80px;
-  background: var(--white);
-  color: var(--black);
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 36px;
-  margin: 0 auto 24px;
-  transition: all 0.4s var(--ease-bounce);
-}
+<!-- NAVIGATION -->
 
-.compliance-item:hover .compliance-icon {
-  transform: scale(1.15) rotate(-5deg);
-}
+<nav class="loading">
+  <div class="logo">
+    <span>HNRESERVE</span>
+  </div>
+  <div class="nav-links">
+    <a href="#mandate">Mandate</a>
+    <a href="#markets">Markets</a>
+    <a href="#programs">Programs</a>
+    <a href="#compliance">Compliance</a>
+    <a href="payment.html" class="cta">Apply Now</a>
+  </div>
+</nav>
 
-.compliance-item h3 {
-  font-size: 20px;
-  font-weight: 800;
-  margin-bottom: 12px;
-  letter-spacing: -0.5px;
-}
+<!-- HERO SECTION -->
 
-.compliance-item p {
-  font-size: 14px;
-  line-height: 1.7;
-  color: var(--gray-400);
-}
+<div class="hero loading">
+  <div class="hero-content">
+    <div class="hero-label">
+      <span>Institutional Grade Capital Allocation</span>
+    </div>
+    <h1>Precision Execution.<br>Risk-First Mandate.</h1>
+    <p class="hero-description">
+      Discretionary capital deployment across digital assets, global equities, and precious metals. 
+      Transparent execution with institutional-grade risk controls and performance reporting.
+    </p>
+    <div class="btn-group">
+      <a href="payment.html" class="btn btn-primary">
+        Request Access
+        <svg class="arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+      <a href="#mandate" class="btn btn-secondary">Learn More</a>
+    </div>
+  </div>
 
-footer {
-  background: var(--gray-900);
-  color: var(--white);
-  padding: 100px 64px 48px;
-}
+  <div class="hero-stats">
+    <div class="stat-grid">
+      <div class="stat-item">
+        <div class="stat-number">24/7</div>
+        <div class="stat-label">Market Coverage</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">3</div>
+        <div class="stat-label">Asset Classes</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Transparent</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">Risk</div>
+        <div class="stat-label">First Approach</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-.footer-grid {
-  max-width: 1440px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 64px;
-  margin-bottom: 80px;
-}
+<!-- TRUST BAR -->
 
-.footer-brand {
-  max-width: 440px;
-}
+<div class="trust-bar loading">
+  <div class="trust-content">
+    <div class="trust-label">Trusted Standards</div>
+    <div class="trust-items">
+      <div class="trust-item">
+        <div class="trust-icon">✓</div>
+        <span>On-Chain Settlement</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">✓</div>
+        <span>Monthly Reporting</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">✓</div>
+        <span>Risk Controls</span>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">✓</div>
+        <span>No Hidden Fees</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-.footer-logo-container {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
-}
+<!-- MANDATE SECTION -->
 
-.footer-logo-mark {
-  width: 48px;
-  height: 48px;
-  background: var(--white);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  font-weight: 900;
-  color: var(--black);
-}
+<section id="mandate" class="loading">
+  <div class="section-header">
+    <div class="section-label">Operational Framework</div>
+    <h2 class="section-title">Risk-First Capital Allocation</h2>
+    <p class="section-description">
+      Capital preservation takes absolute priority. Every position is sized for survivability, 
+      not maximum returns. Market exposure is selective and conditions-dependent.
+    </p>
+  </div>
 
-.footer-logo-text {
-  font-size: 24px;
-  font-weight: 900;
-  letter-spacing: -0.5px;
-}
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">01</div>
+      <h3 class="feature-title">Dynamic Risk Management</h3>
+      <p class="feature-description">
+        No constant exposure mandate. Participation is opportunity-driven and evaluated independently. 
+        Cash positions are strategic, not passive. Market timing is deliberate and condition-based.
+      </p>
+    </div>
 
-.footer-description {
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--gray-400);
-  margin-bottom: 32px;
-}
+```
+<div class="feature-card">
+  <div class="feature-icon">03</div>
+  <h3 class="feature-title">Transparent Execution</h3>
+  <p class="feature-description">
+    All allocations are documented and reported monthly. Performance metrics include drawdown analysis, 
+    Sharpe ratios, and full position disclosure. No hidden strategies or undisclosed leverage.
+  </p>
+</div>
+```
 
-.footer-social {
-  display: flex;
-  gap: 12px;
-}
+  </div>
+</section>
 
-.social-link {
+<!-- MARKETS SECTION -->
+
+<section id="markets" class="loading">
+  <div class="section-header">
+    <div class="section-label">Live Market Data</div>
+    <h2 class="section-title">Real-Time Asset Monitoring</h2>
+    <p class="section-description">
+      Active surveillance across primary allocation targets. Bitcoin as digital gold, 
+      precious metals for portfolio insurance, and equity indices for systematic exposure.
+    </p>
+  </div>
+
+  <div class="markets-grid">
+    <div class="market-widget">
+      <div class="market-header">
+        <div class="market-name">Bitcoin / USDT</div>
+        <div class="market-badge">Primary</div>
+      </div>
+      <iframe src="https://s.tradingview.com/widgetembed/?symbol=BINANCE:BTCUSDT&theme=light&hide_top_toolbar=1"></iframe>
+    </div>
+
+```
+<div class="market-widget">
+  <div class="market-header">
+    <div class="market-name">Gold / USD</div>
+    <div class="market-badge">Hedge</div>
+  </div>
+  <iframe src="https://s.tradingview.com/widgetembed/?symbol=OANDA:XAUUSD&theme=light&hide_top_toolbar=1"></iframe>
+</div>
+
+<div class="market-widget">
+  <div class="market-header">
+    <div class="market-name">Dow Jones Industrial</div>
+    <div class="market-badge">Equity</div>
+  </div>
+  <iframe src="https://s.tradingview.com/widgetembed/?symbol=OANDA:US30USD&theme=light&hide_top_toolbar=1"></iframe>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- PROGRAMS SECTION -->
+
+<section id="programs" class="loading">
+  <div class="section-header">
+    <div class="section-label">Access Programs</div>
+    <h2 class="section-title">Institutional Access Tiers</h2>
+    <p class="section-description">
+      Two distinct pathways for capital allocation. Commentary for autonomous traders, 
+      managed allocation for discretionary deployment with full reporting.
+    </p>
+  </div>
+
+  <div class="programs-grid">
+    <div class="program-card">
+      <div class="program-badge">Professional</div>
+      <h3 class="program-title">Market Commentary</h3>
+      <p class="program-description">
+        Structured trade ideas with full context, risk parameters, and execution guidelines. 
+        Delivered via secure channels with chart analysis and position sizing frameworks.
+      </p>
+      <div class="program-features">
+        <div class="program-feature">Weekly market analysis and trade setups</div>
+        <div class="program-feature">Risk-defined entry and exit parameters</div>
+        <div class="program-feature">Position sizing recommendations</div>
+        <div class="program-feature">Technical and fundamental context</div>
+        <div class="program-feature">Secure delivery via encrypted channels</div>
+      </div>
+      <div class="program-price">
+        250 <small>USDT/month</small>
+      </div>
+      <a href="payment.html" class="btn btn-primary" style="width: 100%; justify-content: center;">
+        Subscribe Now
+        <svg class="arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+```
+<div class="program-card">
+  <div class="program-badge">Institutional</div>
+  <h3 class="program-title">Managed Allocation</h3>
+  <p class="program-description">
+    Discretionary capital deployment with institutional reporting standards. 
+    Monthly performance reviews, drawdown analysis, and full position transparency.
+  </p>
+  <div class="program-features">
+    <div class="program-feature">Full discretionary trade execution</div>
+    <div class="program-feature">Monthly performance and risk reports</div>
+    <div class="program-feature">On-chain settlement and verification</div>
+    <div class="program-feature">Direct communication channel</div>
+    <div class="program-feature">Customizable risk parameters</div>
+  </div>
+  <div class="program-price">
+    800+ <small>USDT minimum</small>
+  </div>
+  <a href="payment.html" class="btn btn-primary" style="width: 100%; justify-content: center;">
+    Apply Now
+    <svg class="arrow" width="16" height="16" viewBox="0 0 16 16" fill="none">
+      <path d="M6 3L11 8L6 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </a>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- COMPLIANCE SECTION -->
+
+<section id="compliance" class="compliance loading">
+  <div class="section-header">
+    <div class="section-label">Risk Disclosure</div>
+    <h2 class="section-title">Regulatory Compliance & Risk</h2>
+    <p class="section-description">
+      All capital allocation activities involve substantial risk. Performance is never guaranteed, 
+      and past results do not indicate future outcomes.
+    </p>
+  </div>
+
+  <div class="compliance-grid">
+    <div class="compliance-item">
+      <div class="compliance-icon">⚠</div>
+      <div class="compliance-content">
+        <h3>Capital Risk</h3>
+        <p>All deployed capital is subject to market risk and potential loss. No principal guarantees are provided under any circumstances.</p>
+      </div>
+    </div>
+
+```
+<div class="compliance-item">
+  <div class="compliance-icon">📊</div>
+  <div class="compliance-content">
+    <h3>Performance Disclosure</h3>
+    <p>Past performance does not guarantee future results. All returns are net of fees and reported with full transparency.</p>
+  </div>
+</div>
+
+<div class="compliance-item">
+  <div class="compliance-icon">🔒</div>
+  <div class="compliance-content">
+    <h3>Security Standards</h3>
+    <p>On-chain settlement ensures transparent custody. Multi-signature protocols and hardware security are standard practice.</p>
+  </div>
+</div>
+
+<div class="compliance-item">
+  <div class="compliance-icon">📋</div>
+  <div class="compliance-content">
+    <h3>Regulatory Notice</h3>
+    <p>HNReserve operates as a capital allocation service. Not registered as an investment advisor. Clients retain full asset custody.</p>
+  </div>
+</div>
+```
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer class="loading">
+  <div class="footer-content">
+    <div class="footer-brand">
+      <div class="footer-logo">HNRESERVE</div>
+      <p class="footer-description">
+        Institutional-grade capital allocation across digital assets, equities, and commodities. 
+        Risk-first mandate with transparent execution and monthly performance reporting.
+      </p>
+    </div>
+
+```
+<div class="footer-section">
+  <h4>Navigation</h4>
+  <div class="footer-links">
+    <a href="#mandate">Mandate</a>
+    <a href="#markets">Markets</a>
+    <a href="#programs">Programs</a>
+    <a href="#compliance">Compliance</a>
+    <a href="payment.html">Apply</a>
+  </div>
+</div>
+
+<div class="footer-section">
+  <h4>Resources</h4>
+  <div class="footer-links">
+    <a href="#risk">Risk Disclosure</a>
+    <a href="#performance">Performance Data</a>
+    <a href="#contact">Contact</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</div>
+```
+
+  </div>
+
+  <div class="footer-bottom">
+    <div>© 2025 HNReserve. All capital allocation involves risk.</div>
+    <div class="footer-legal">
+      <a href="#terms">Terms of Service</a>
+      <a href="#privacy">Privacy Policy</a>
+      <a href="#disclaimer">Risk Disclaimer</a>
+    </div>
+  </div>
+</footer>
+
+<!-- SCROLL TO TOP -->
+
+<div class="scroll-top" id="scrollTop">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M12 19V5M5 12L12 5L19 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>
+</div>
+
+<script>
+// Intersection Observer for scroll animations
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('loading');
+    }
+  });
+}, observerOptions);
+
+// Observe all sections
+document.querySelectorAll('section, .hero, .trust-bar, nav, footer').forEach(el => {
+  observer.observe(el);
+});
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+
+// Scroll to top button
+const scrollTopBtn = document.getElementById('scrollTop');
+
+window.addEventListener('scroll', () => {
+  if (window.pageYOffset > 500) {
+    scrollTopBtn.classList.add('visible');
+  } else {
+    scrollTopBtn.classList.remove('visible');
+  }
+});
+
+scrollTopBtn.addEventListener('click', () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+});
+
+// Navigation scroll effect
+let lastScroll = 0;
+const nav = document.querySelector('nav');
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.pageYOffset;
+  
+  if (currentScroll <= 0) {
+    nav.style.boxShadow = 'none';
+  } else {
+    nav.style.boxShadow = '0 2px 8px rgba(0, 0, 0, 0.05)';
+  }
+  
+  lastScroll = currentScroll;
+});
+
+// Performance optimization: Preload critical resources
+window.addEventListener('load', () => {
+  document.body.classList.add('loaded');
+});
+</script>
+
+</body>
+</html>">
+        No leverage guarantees. Position sizing adjusts dynamically based on volatility regimes, 
+        market conditions, and portfolio composition. Capital protection is non-negotiable.
+      </p>
+    </div>
+
+```
+<div class="feature-card">
+  <div class="feature-icon">02</div>
+  <h3 class="feature-title">Selective Market Exposure</h3>
+  <p class="feature-description
+```
