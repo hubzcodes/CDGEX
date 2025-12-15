@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HNReserve | Institutional Capital Allocation</title>
-    <meta name="description" content="Institutional-grade discretionary capital allocation across digital assets, equities, and commodities. Risk-first mandate with transparent execution.">
+    <title>HNReserve | Fiduciary Capital Management</title>
+    <meta name="description" content="Proprietary models for institutional capital allocation. Maximizing risk-adjusted returns with absolute transparency and fiduciary duty.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -12,12 +12,12 @@
     <style>
         /* --- DESIGN TOKENS --- */
         :root {
-            --primary: #0070f3; /* Accent blue */
-            --background: #0A0A0A; /* Deep dark background */
-            --surface: #171717; /* Card/Surface background */
-            --text-high: #F9FAFB; /* High contrast text */
-            --text-mid: #A1A1AA; /* Muted text */
-            --border: #262626; /* Subtle dark border */
+            --primary: #0070f3;
+            --background: #0A0A0A;
+            --surface: #171717;
+            --text-high: #F9FAFB;
+            --text-mid: #A1A1AA;
+            --border: #262626;
             --glow-color: rgba(0, 112, 243, 0.4);
             
             --font-display: 'Space Grotesk', sans-serif;
@@ -44,8 +44,7 @@
             color: var(--text-high);
             line-height: 1.6;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
+            min-height: 100vh; /* Ensure full viewport height */
         }
 
         /* --- UTILITIES & TYPOGRAPHY --- */
@@ -54,36 +53,36 @@
         section {
             max-width: 1440px;
             margin: 0 auto;
-            padding: 120px 48px;
+            padding: 100px 48px; /* Slightly tighter padding for density */
             position: relative;
         }
         
         .section-header {
             max-width: 900px;
-            margin: 0 auto 80px;
+            margin: 0 auto 60px; /* Reduced margin */
             text-align: center;
         }
 
         .section-label {
-            font-size: 13px;
+            font-size: 14px; /* Increased slightly for impact */
             font-weight: 700;
             color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
 
         .section-title {
             font-family: var(--font-display);
-            font-size: 64px;
+            font-size: 56px; /* Optimized size for readability and impact */
             font-weight: 700;
-            letter-spacing: -2.5px;
+            letter-spacing: -2px;
             line-height: 1.1;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
         }
         
         .section-description {
-            font-size: 18px;
+            font-size: 17px; /* Slightly smaller for density */
             line-height: 1.7;
             color: var(--text-mid);
         }
@@ -105,90 +104,64 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 16px 48px;
+            padding: 14px 48px;
             background: rgba(10, 10, 10, 0.9);
             backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--border);
             position: sticky;
             top: 0;
             z-index: 1000;
-            transition: all 0.3s var(--transition-smooth);
         }
 
         .logo {
             font-family: var(--font-display);
-            font-size: 24px;
-            font-weight: 700;
+            font-size: 28px;
+            font-weight: 800;
             letter-spacing: -0.5px;
-            color: var(--text-high);
-            padding: 4px 0;
         }
 
+        .nav-links {
+            display: flex;
+            gap: 8px;
+        }
         .nav-links a {
-            color: var(--text-mid);
-            font-size: 15px;
             font-weight: 500;
-            padding: 8px 16px;
-            border-radius: 8px;
-            transition: all 0.3s var(--transition-smooth);
-        }
-
-        .nav-links a:hover {
-            color: var(--text-high);
-            background: var(--surface);
-        }
-
-        .nav-links a.cta {
-            background: var(--primary);
-            color: var(--background);
-            font-weight: 600;
-            margin-left: 16px;
-            padding: 10px 24px;
-            box-shadow: 0 0 15px rgba(0, 112, 243, 0.5);
-        }
-
-        .nav-links a.cta:hover {
-            background: #005bb5;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-glow);
         }
 
         /* --- HERO SECTION --- */
         .hero {
-            padding: 180px 48px 140px;
+            padding: 160px 48px 120px;
             text-align: center;
-            position: relative;
         }
 
         .hero h1 {
             font-family: var(--font-display);
-            font-size: 96px;
+            font-size: 88px;
             font-weight: 900;
             line-height: 1;
-            letter-spacing: -4px;
-            margin-bottom: 24px;
+            letter-spacing: -3px;
+            margin-bottom: 20px;
             background: linear-gradient(180deg, var(--text-high) 60%, var(--text-mid));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .hero-description {
-            font-size: 24px;
+            font-size: 22px;
             color: var(--text-mid);
             max-width: 800px;
-            margin: 0 auto 48px;
+            margin: 0 auto 40px;
         }
 
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            padding: 16px 32px;
-            font-size: 16px;
+            padding: 14px 30px;
+            font-size: 15px;
             font-weight: 600;
-            border-radius: 10px;
+            border-radius: 8px;
             transition: all 0.3s var(--transition-smooth);
-            cursor: pointer;
             border: none;
             text-transform: uppercase;
             letter-spacing: 0.5px;
@@ -197,12 +170,12 @@
         .btn-primary {
             background: var(--primary);
             color: var(--background);
-            box-shadow: 0 4px 20px rgba(0, 112, 243, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 112, 243, 0.4);
         }
 
         .btn-primary:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0, 112, 243, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 112, 243, 0.6);
         }
 
         .btn-secondary {
@@ -222,35 +195,34 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 32px;
             max-width: 1200px;
-            margin: 0 auto;
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            background: var(--surface);
-            padding: 40px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            margin: 0 auto 40px;
         }
 
         .metric-item {
             text-align: center;
-            border-right: 1px solid var(--border);
-            padding: 0 16px;
+            padding: 24px 16px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.3s var(--transition-smooth);
         }
         
-        .metric-item:last-child {
-            border-right: none;
+        .metric-item:hover {
+            transform: translateY(-4px);
+            border-color: var(--primary);
         }
 
         .metric-number {
             font-family: var(--font-display);
-            font-size: 48px;
+            font-size: 40px;
             font-weight: 800;
             line-height: 1;
             color: var(--primary);
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .metric-label {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-mid);
             font-weight: 500;
             text-transform: uppercase;
@@ -260,57 +232,77 @@
         /* --- FEATURE/MANDATE CARD --- */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; /* Tighter gap */
         }
 
         .feature-card {
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 40px;
+            padding: 30px; /* Tighter padding */
             transition: all 0.4s var(--transition-smooth);
-            position: relative;
-            overflow: hidden;
         }
 
         .feature-card:hover {
             border-color: var(--primary);
-            transform: translateY(-8px);
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4), var(--shadow-glow);
         }
 
         .feature-icon {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: var(--primary);
             color: var(--background);
-            border-radius: 12px;
+            border-radius: 8px;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            opacity: 0.8;
         }
 
         .feature-title {
             font-family: var(--font-display);
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .feature-description {
             color: var(--text-mid);
-            font-size: 16px;
+            font-size: 15px;
+        }
+        
+        /* --- CORE VALUE SECTION (New) --- */
+        .core-value-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 40px;
+        }
+        
+        .value-item {
+            border-left: 3px solid var(--primary);
+            padding-left: 20px;
+        }
+        
+        .value-item h4 {
+            font-family: var(--font-display);
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+        
+        .value-item p {
+            font-size: 15px;
+            color: var(--text-mid);
         }
 
-        /* --- PERFORMANCE SECTION (NEW) --- */
+        /* --- PERFORMANCE SECTION --- */
         .performance-grid {
             display: grid;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 3fr 2fr;
             gap: 60px;
             align-items: center;
         }
@@ -320,14 +312,19 @@
             background: linear-gradient(135deg, #171717, #262626);
             border-radius: 16px;
             border: 1px solid var(--border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            padding: 40px;
+        }
+        
+        .chart-placeholder h3 {
             font-family: var(--font-display);
-            font-size: 28px;
+            font-size: 24px;
             color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+        
+        .chart-placeholder p {
+            font-size: 15px;
+            color: var(--text-mid);
         }
         
         .performance-stats .stat-item {
@@ -335,80 +332,76 @@
             border: 1px solid var(--border);
             border-radius: 12px;
             padding: 24px;
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* Tighter margin */
         }
 
         .performance-stats .stat-item h3 {
-            font-size: 14px;
+            font-size: 13px;
             color: var(--text-mid);
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 8px;
+            margin-bottom: 4px;
         }
 
         .performance-stats .stat-item p {
             font-family: var(--font-display);
-            font-size: 36px;
+            font-size: 32px;
             font-weight: 700;
-            color: var(--text-high);
-            line-height: 1;
+            line-height: 1.1;
         }
         
-        .performance-stats .stat-item p.positive {
-            color: #10B981; /* Green */
-        }
+        .performance-stats .stat-item p.positive { color: #10B981; }
+        .performance-stats .stat-item p.negative { color: #EF4444; }
         
-        .performance-stats .stat-item p.negative {
-            color: #EF4444; /* Red */
-        }
-        
-        /* --- TEAM/ADVISORS SECTION (NEW) --- */
+        /* --- LEADERSHIP SECTION (Updated to CEO Name) --- */
         .team-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
         .team-member {
-            text-align: center;
-            padding: 30px;
+            padding: 40px;
             background: var(--surface);
             border-radius: 16px;
             border: 1px solid var(--border);
             transition: all 0.3s var(--transition-smooth);
+            text-align: center;
         }
 
         .team-member:hover {
             border-color: var(--primary);
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+            background: #1e1e1e;
         }
 
         .member-img {
-            width: 100px;
-            height: 100px;
-            background: #333; /* Placeholder for image */
+            width: 120px;
+            height: 120px;
+            background: #333; 
             border-radius: 50%;
             margin: 0 auto 20px;
-            border: 3px solid var(--primary);
+            border: 4px solid var(--primary);
+            box-shadow: 0 0 10px rgba(0, 112, 243, 0.4);
         }
 
         .member-name {
             font-family: var(--font-display);
-            font-size: 22px;
+            font-size: 26px;
             font-weight: 700;
             margin-bottom: 4px;
         }
 
         .member-title {
-            font-size: 14px;
+            font-size: 15px;
             color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .member-bio {
-            font-size: 14px;
+            font-size: 15px;
             color: var(--text-mid);
         }
         
@@ -416,46 +409,46 @@
         .programs-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 40px;
+            gap: 30px;
         }
         
         .program-card {
             background: var(--surface);
             border: 2px solid var(--border);
-            border-radius: 24px;
-            padding: 56px;
+            border-radius: 20px;
+            padding: 40px;
             transition: all 0.4s var(--transition-smooth);
-            position: relative;
         }
 
         .program-card:hover {
             border-color: var(--primary);
-            transform: scale(1.02);
-            box-shadow: var(--shadow-glow);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), var(--shadow-glow);
         }
         
         .program-title {
             font-family: var(--font-display);
-            font-size: 38px;
+            font-size: 32px;
             font-weight: 700;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
         
         .program-description {
             color: var(--text-mid);
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
 
         .program-features {
-            margin-bottom: 32px;
+            margin-bottom: 24px;
+            list-style: none;
         }
 
         .program-feature {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 14px;
-            font-size: 16px;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 15px;
             color: var(--text-mid);
         }
 
@@ -466,39 +459,39 @@
 
         .program-price {
             font-family: var(--font-display);
-            font-size: 56px;
+            font-size: 48px;
             font-weight: 800;
-            letter-spacing: -2px;
-            margin-bottom: 32px;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
         }
 
         .program-price small {
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
             color: var(--text-mid);
         }
         
-        /* --- INVESTOR RELATIONS (NEW) --- */
+        /* --- INVESTOR RELATIONS CTA --- */
         .investor-card {
             background: var(--primary);
             color: var(--background);
-            border-radius: 20px;
-            padding: 60px;
+            border-radius: 16px;
+            padding: 50px;
             text-align: center;
             margin-top: 40px;
         }
         
         .investor-card h2 {
             font-family: var(--font-display);
-            font-size: 48px;
+            font-size: 40px;
             font-weight: 700;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
         
         .investor-card p {
-            font-size: 20px;
-            margin-bottom: 30px;
-            max-width: 700px;
+            font-size: 18px;
+            margin-bottom: 25px;
+            max-width: 650px;
             margin-left: auto;
             margin-right: auto;
             color: rgba(0, 0, 0, 0.7);
@@ -513,130 +506,92 @@
         .investor-card .btn-primary:hover {
             background: #333;
             color: var(--text-high);
-            transform: translateY(-2px);
         }
 
         /* --- FOOTER --- */
         footer {
             background: var(--surface);
             border-top: 1px solid var(--border);
-            padding: 80px 48px 40px;
+            padding: 60px 48px 30px;
         }
 
         .footer-content {
             max-width: 1440px;
-            margin: 0 auto 64px;
+            margin: 0 auto 40px;
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
-            gap: 60px;
+            gap: 40px;
         }
 
-        .footer-brand .logo {
-             margin-bottom: 20px;
-             font-size: 28px;
-        }
+        .footer-brand .logo { margin-bottom: 16px; }
 
-        .footer-description {
-            font-size: 15px;
-            color: var(--text-mid);
-        }
+        .footer-description { font-size: 14px; color: var(--text-mid); }
         
         .footer-section h4 {
-            font-size: 14px;
+            font-size: 13px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             color: var(--text-high);
         }
         
-        .footer-links a {
-            font-size: 15px;
-            color: var(--text-mid);
-            padding: 4px 0;
-            display: block;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
+        .footer-links a { font-size: 14px; color: var(--text-mid); padding: 3px 0; display: block; }
+        .footer-links a:hover { color: var(--primary); }
 
         .footer-bottom {
             max-width: 1440px;
             margin: 0 auto;
-            padding-top: 40px;
+            padding-top: 30px;
             border-top: 1px solid var(--border);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 13px;
+            font-size: 12px;
             color: var(--text-mid);
         }
         
-        /* --- ANIMATIONS (Scroll Reveal and Parallax) --- */
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s var(--transition-smooth), transform 1s var(--transition-smooth);
-        }
-        
-        .revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
+        /* --- RESPONSIVENESS (Mobile/iPad) --- */
         @media (max-width: 1024px) {
-            .hero h1 {
-                font-size: 64px;
-            }
+            section, nav { padding-left: 30px; padding-right: 30px; }
+            .hero h1 { font-size: 64px; }
+            .section-title { font-size: 48px; }
+
             .metrics-grid {
                 grid-template-columns: repeat(2, 1fr);
-                padding: 30px;
-            }
-            .metric-item {
-                border-right: none;
-                border-bottom: 1px solid var(--border);
-                padding-bottom: 20px;
-                margin-bottom: 20px;
-            }
-            .metric-item:nth-child(even) {
-                border-right: none;
-            }
-            .metric-item:last-child {
-                border-bottom: none;
-                margin-bottom: 0;
             }
             .performance-grid {
                 grid-template-columns: 1fr;
             }
+            .chart-placeholder { min-height: 300px; }
             .programs-grid {
                 grid-template-columns: 1fr;
             }
             .footer-content {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr 1fr;
             }
         }
         
         @media (max-width: 600px) {
-            section, nav {
-                padding-left: 20px;
-                padding-right: 20px;
-            }
-            .hero h1 {
-                font-size: 48px;
-            }
+            section, nav { padding-left: 15px; padding-right: 15px; }
+            .hero { padding: 120px 15px 80px; }
+            .hero h1 { font-size: 40px; letter-spacing: -1px; }
+            .hero-description { font-size: 18px; }
+            .section-title { font-size: 32px; letter-spacing: -1px; }
+
             .metrics-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
-            .metric-item {
-                border-bottom: 1px solid var(--border);
-            }
-            .metric-item:last-child {
-                border-bottom: none;
-            }
-            .section-title {
-                font-size: 40px;
-            }
+            .metric-item:hover { transform: none; }
+            
+            .nav-links { display: none; } /* Hide for tiny screens to simplify */
+            .nav-links a.cta { display: block; margin: 0; }
+
+            .core-value-grid { grid-template-columns: 1fr; gap: 30px; }
+            .footer-content { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; text-align: center; gap: 10px; }
+            .team-member { padding: 30px; }
         }
     </style>
 </head>
@@ -648,140 +603,168 @@
 <nav>
     <a href="index.html" class="logo">HNRESERVE</a>
     <div class="nav-links">
-        <a href="#mandate">Mandate</a>
-        <a href="#performance">Performance</a>
-        <a href="#team">Team</a>
-        <a href="#programs">Programs</a>
-        <a href="#compliance">Risk</a>
+        <a href="#mandate">Fiduciary Mandate</a>
+        <a href="#performance">Alpha Metrics</a>
+        <a href="#leadership">Leadership</a>
+        <a href="#programs">Partnership Tiers</a>
+        <a href="#compliance">Governance</a>
         <a href="payment.html" class="cta">Request Access</a>
     </div>
 </nav>
 
 <div class="hero reveal">
-    <h1 data-speed="0.8">Institutional Capital. <br> Algorithmic Precision.</h1>
+    <h1 data-speed="0.8">Fiduciary Capital.<br> Algorithmic Alpha Generation.</h1>
     <p class="hero-description" data-speed="0.9">
-        Discretionary capital deployment across core asset classes. **Risk-First** mandate with transparent, verifiable execution for sophisticated investors.
+        We manage institutional capital with a deep commitment to **Fiduciary Duty**, deploying proprietary models across volatility regimes for consistent, risk-adjusted returns.
     </p>
     <div class="btn-group reveal">
         <a href="payment.html" class="btn btn-primary">
-            Fund Allocation
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+            Start Your Allocation
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line></svg>
         </a>
-        <a href="#performance" class="btn btn-secondary">View Performance</a>
+        <a href="#performance" class="btn btn-secondary">View Strategy Overview</a>
     </div>
 </div>
 
 <div class="metrics-grid reveal">
     <div class="metric-item">
         <div class="metric-number">$100M+</div>
-        <div class="metric-label">Allocated Capital</div>
+        <div class="metric-label">AUM Deployed</div>
     </div>
     <div class="metric-item">
-        <div class="metric-number">30+</div>
-        <div class="metric-label">Institutional Clients</div>
+        <div class="metric-number">1.84</div>
+        <div class="metric-label">Verified Sharpe (3Y)</div>
     </div>
     <div class="metric-item">
         <div class="metric-number">99.9%</div>
-        <div class="metric-label">Uptime Execution</div>
+        <div class="metric-label">Execution Reliability</div>
     </div>
     <div class="metric-item">
-        <div class="metric-number">0%</div>
-        <div class="metric-label">Hidden Fees</div>
+        <div class="metric-number">Risk-First</div>
+        <div class="metric-label">Core Mandate</div>
     </div>
 </div>
 
 <section id="mandate" class="reveal">
     <div class="section-header">
-        <div class="section-label">OPERATIONAL FRAMEWORK</div>
-        <h2 class="section-title">The Foundation of Risk-Adjusted Returns.</h2>
+        <div class="section-label">OUR OPERATIONAL FRAMEWORK</div>
+        <h2 class="section-title">A Fiduciary Duty to Capital Preservation.</h2>
         <p class="section-description">
-            Capital preservation is our primary mandate. We employ proprietary volatility models and condition-dependent market entry, ensuring survivability across all regimes.
+            Our mandate is defined by the three core pillars of institutional-grade allocation: Liquidity, Stability, and Measurable Alpha. We do not chase volatility; we monetize it.
         </p>
     </div>
 
     <div class="features-grid">
         <div class="feature-card reveal">
-            <div class="feature-icon">R1</div>
-            <h3 class="feature-title">Dynamic Risk-Sizing</h3>
+            <div class="feature-icon">A</div>
+            <h3 class="feature-title">Systematic Alpha Models</h3>
             <p class="feature-description">
-                Positions are sized inversely proportional to market volatility. No fixed exposure. Our goal is continuous compounding through systematic draw-down control.
+                Proprietary models engineered to identify and exploit market inefficiencies, delivering non-correlated alpha regardless of economic conditions.
             </p>
         </div>
         <div class="feature-card reveal">
-            <div class="feature-icon">R2</div>
-            <h3 class="feature-title">Verifiable Transparency</h3>
+            <div class="feature-icon">R</div>
+            <h3 class="feature-title">Adaptive Risk Engine</h3>
             <p class="feature-description">
-                Monthly full position disclosure, certified drawdown analysis, and on-chain verification for digital asset custody. Trust is built on auditable data.
+                Positions are dynamically scaled using real-time VaR (Value at Risk) metrics. Zero tolerance for unmanaged tail risk.
             </p>
         </div>
         <div class="feature-card reveal">
-            <div class="feature-icon">R3</div>
-            <h3 class="feature-title">Multi-Asset Correlation</h3>
+            <div class="feature-icon">L</div>
+            <h3 class="feature-title">Absolute Liquidity</h3>
             <p class="feature-description">
-                Allocation spans Digital Assets, Global Indices, and Precious Metals. This diversification reduces portfolio correlation risk during systemic shocks.
+                Trades are primarily executed in high-volume, highly liquid instruments, ensuring rapid entry and, crucially, rapid exit when mandated by risk parameters.
             </p>
+        </div>
+    </div>
+</section>
+
+<section id="values" class="reveal" style="padding-top: 0;">
+    <div class="section-header" style="margin-bottom: 30px;">
+        <div class="section-label">INSTITUTIONAL VALUES</div>
+        <h2 class="section-title" style="font-size: 38px;">Why Institutions Choose HNReserve.</h2>
+    </div>
+    <div class="core-value-grid">
+        <div class="value-item reveal">
+            <h4>Capital Efficiency</h4>
+            <p>Our focus is on maximizing the return per unit of risk taken, achieving high Sharpe Ratios that outperform conventional benchmarks.</p>
+        </div>
+        <div class="value-item reveal">
+            <h4>Compliance & Governance</h4>
+            <p>Dedicated adherence to KYC/AML and rigorous financial governance, providing peace of mind for qualified investors.</p>
+        </div>
+        <div class="value-item reveal">
+            <h4>Full Transparency</h4>
+            <p>Daily reporting access, monthly audit trails, and dedicated compliance reporting. See exactly where your capital is deployed.</p>
         </div>
     </div>
 </section>
 
 <section id="performance" class="reveal">
     <div class="section-header">
-        <div class="section-label">INVESTOR INSIGHTS</div>
-        <h2 class="section-title">Verified Performance & Volatility Control.</h2>
+        <div class="section-label">VERIFIABLE ALPHA</div>
+        <h2 class="section-title">Data-Driven Results. No Speculation.</h2>
         <p class="section-description">
-            Our commitment to performance metrics is absolute. We prioritize high Sharpe Ratios and low maximum drawdown, reflecting a conservative, disciplined approach to growth.
+            Performance is measured not just by returns, but by risk control. Our historical data reflects a consistent ability to generate positive returns while mitigating significant drawdowns.
         </p>
     </div>
 
     <div class="performance-grid">
         <div class="chart-placeholder reveal">
-            PERFORMANCE CHART MOCKUP
-        </div>
+            <h3>Proprietary Model Simulation: Alpha vs. Benchmark (S&P 500)</h3>
+            <p>Data reflects simulated net returns over the past 36 months, demonstrating non-correlated growth profile.</p>
+            </div>
         
         <div class="performance-stats">
             <div class="stat-item reveal">
-                <h3>Sharpe Ratio (3Y)</h3>
-                <p class="positive">1.84</p>
+                <h3>CAGR (5Y Avg)</h3>
+                <p class="positive">22.1%</p>
             </div>
             <div class="stat-item reveal">
-                <h3>Max Drawdown (YTD)</h3>
-                <p class="negative">-4.2%</p>
+                <h3>Volatility Adjusted Return</h3>
+                <p class="positive">1.84 SR</p>
             </div>
             <div class="stat-item reveal">
-                <h3>YTD Return (Net)</h3>
-                <p class="positive">+18.9%</p>
+                <h3>Maximum Drawdown</h3>
+                <p class="negative">-6.5%</p>
+            </div>
+            <div class="stat-item reveal">
+                <h3>Correlation to Indices</h3>
+                <p>0.21</p>
             </div>
         </div>
     </div>
 </section>
 
-<section id="team" class="reveal">
+<section id="leadership" class="reveal">
     <div class="section-header">
-        <div class="section-label">GOVERNANCE & LEADERSHIP</div>
-        <h2 class="section-title">The Minds Behind the Algorithm.</h2>
+        <div class="section-label">GOVERNANCE & STEWARDSHIP</div>
+        <h2 class="section-title">Committed Leadership. Fiduciary Oversight.</h2>
         <p class="section-description">
-            Our team combines decades of experience in quantitative finance, high-frequency trading, and risk modelling from tier-one financial institutions.
+            Our leadership team is comprised of seasoned quantitative experts and former institutional portfolio managers, united by a commitment to risk-first stewardship.
         </p>
     </div>
 
     <div class="team-grid">
         <div class="team-member reveal">
             <div class="member-img"></div>
-            <h4 class="member-name">Dr. Elias Vance</h4>
-            <div class="member-title">Chief Investment Officer</div>
-            <p class="member-bio">Ex-Goldman Sachs Quant. Focus on adaptive risk engines.</p>
+            <h4 class="member-name">Henry V. Thorne</h4>
+            <div class="member-title">Chief Executive Officer (CEO)</div>
+            <p class="member-bio">Visionary architect of our proprietary risk-mitigation framework. Ex-Head of Structured Products at Tier-1 Bank.</p>
         </div>
+        
+        <div class="team-member reveal">
+            <div class="member-img"></div>
+            <h4 class="member-name">Dr. Elias Vance</h4>
+            <div class="member-title">Chief Quantitative Strategist</div>
+            <p class="member-bio">Leads all research and development of systematic trading models. Ph.D. in Computational Finance.</p>
+        </div>
+        
         <div class="team-member reveal">
             <div class="member-img"></div>
             <h4 class="member-name">Sarah Chen</h4>
-            <div class="member-title">Head of Operations</div>
-            <p class="member-bio">Expert in regulatory compliance and on-chain settlement.</p>
-        </div>
-        <div class="team-member reveal">
-            <div class="member-img"></div>
-            <h4 class="member-name">Marcus Thorne</h4>
-            <div class="member-title">Advisor (Macro)</div>
-            <p class="member-bio">Former Chief Economist at a Global Central Bank.</p>
+            <div class="member-title">Head of Investor Relations</div>
+            <p class="member-bio">Manages all institutional relationships and transparency reporting. Focused on compliance and client alignment.</p>
         </div>
     </div>
 </section>
@@ -789,38 +772,38 @@
 <section id="programs" class="reveal">
     <div class="section-header">
         <div class="section-label">PARTNERSHIP TIERS</div>
-        <h2 class="section-title">Institutional and Professional Access.</h2>
+        <h2 class="section-title">Selecting the Right Capital Mandate.</h2>
         <p class="section-description">
-            Choose the level of engagement that fits your financial needs, from advisory commentary to full discretionary managed allocation.
+            We offer two streamlined structures tailored for professional traders seeking guidance and institutions requiring full discretionary management.
         </p>
     </div>
 
     <div class="programs-grid">
         <div class="program-card reveal">
-            <span class="section-label">Professional</span>
-            <h3 class="program-title">Market Commentary</h3>
-            <p class="program-description">Structured trade ideas with full context, risk parameters, and execution guidelines for autonomous traders.</p>
-            <div class="program-features">
-                <div class="program-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 0 1-20 0v-.92"></path><path d="M12 2v10"></path><path d="M12 10l-2-2m2 2l2-2"></path></svg>Weekly Analysis & Setups</div>
-                <div class="program-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 0 1-20 0v-.92"></path><path d="M12 2v10"></path><path d="M12 10l-2-2m2 2l2-2"></path></svg>Defined Risk Parameters</div>
-                <div class="program-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 0 1-20 0v-.92"></path><path d="M12 2v10"></path><path d="M12 10l-2-2m2 2l2-2"></path></svg>Secure Delivery</div>
-            </div>
-            <div class="program-price">250 <small>USDT / month</small></div>
+            <span class="section-label">PROFESSIONAL TRADER</span>
+            <h3 class="program-title">Alpha Commentary</h3>
+            <p class="program-description">Structured, high-conviction trade setups, providing the risk parameters and insights from our proprietary models.</p>
+            <ul class="program-features">
+                <li class="program-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Weekly Macro Outlook</li>
+                <li class="program-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Defined Entry/Exit Parameters</li>
+                <li class="program-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Dedicated Analyst Chat Access</li>
+            </ul>
+            <div class="program-price">$250 <small>/ month</small></div>
             <a href="payment.html" class="btn btn-primary" style="width: 100%;">
                 Subscribe Now
             </a>
         </div>
 
         <div class="program-card reveal">
-            <span class="section-label">Institutional</span>
-            <h3 class="program-title">Managed Allocation</h3>
-            <p class="program-description">Full discretionary capital deployment with institutional reporting, on-chain custody verification, and dedicated support.</p>
-            <div class="program-features">
-                <div class="program-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 0 1-20 0v-.92"></path><path d="M12 2v10"></path><path d="M12 10l-2-2m2 2l2-2"></path></svg>Full Discretionary Execution</div>
-                <div class="program-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 0 1-20 0v-.92"></path><path d="M12 2v10"></path><path d="M12 10l-2-2m2 2l2-2"></path></svg>Customizable Risk Profiling</div>
-                <div class="program-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 0 1-20 0v-.92"></path><path d="M12 2v10"></path><path d="M12 10l-2-2m2 2l2-2"></path></svg>On-Chain Verification</div>
-            </div>
-            <div class="program-price">800k+ <small>USDT minimum</small></div>
+            <span class="section-label">INSTITUTIONAL PARTNER</span>
+            <h3 class="program-title">Discretionary Allocation</h3>
+            <p class="program-description">Full, regulated management of capital, optimizing deployment for sustained compounding and drawdown control.</p>
+            <ul class="program-features">
+                <li class="program-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Segregated, Secure Custody</li>
+                <li class="program-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Customizable Risk Profiling</li>
+                <li class="program-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Monthly Audited Reporting</li>
+            </ul>
+            <div class="program-price">$800K+ <small>minimum capital</small></div>
             <a href="payment.html" class="btn btn-primary" style="width: 100%;">
                 Apply Now
             </a>
@@ -830,12 +813,12 @@
 
 <section id="investor-cta" class="reveal">
     <div class="investor-card reveal">
-        <h2>Ready for Institutional Partnership?</h2>
+        <h2>Engage with Our Investor Relations Team.</h2>
         <p>
-            For large-scale mandates, dedicated segregated accounts, and customized strategy development, contact our Investor Relations team directly.
+            For mandates over $5M, customized due diligence, or segregated account structuring, please initiate contact with our senior partners.
         </p>
         <a href="payment.html" class="btn btn-primary">
-            Contact Investor Relations
+            Schedule a Confidential Call
         </a>
     </div>
 </section>
@@ -843,32 +826,32 @@
 <section id="compliance" class="reveal">
     <div class="section-header">
         <div class="section-label">GOVERNANCE & DISCLOSURE</div>
-        <h2 class="section-title">Regulatory Compliance & Risk Disclosure.</h2>
+        <h2 class="section-title">Regulatory Framework and Risk Transparency.</h2>
         <p class="section-description">
-            All capital allocation activities involve substantial risk. Past performance is not indicative of future results. We operate with strict adherence to compliance standards.
+            We maintain total transparency regarding operational risk, regulatory adherence, and liquidity provisioning. Fiduciary trust is our non-negotiable standard.
         </p>
     </div>
 
     <div class="features-grid">
         <div class="feature-card reveal">
             <div class="feature-icon">⚠</div>
-            <h3 class="feature-title">Systemic Risk</h3>
+            <h3 class="feature-title">Risk Acknowledgment</h3>
             <p class="feature-description">
-                Capital deployed is subject to market fluctuation and potential loss. No principal guarantees are provided under any circumstances.
+                All capital is exposed to market risk. We strongly emphasize that past performance does not guarantee future results.
             </p>
         </div>
         <div class="feature-card reveal">
             <div class="feature-icon">🔒</div>
-            <h3 class="feature-title">Custody & Security</h3>
+            <h3 class="feature-title">Asset Segregation</h3>
             <p class="feature-description">
-                Clients retain asset custody. We utilize multi-signature protocols and hardware security keys for maximum fund protection.
+                Client assets are held in segregated, multi-signature accounts, providing a layer of security separate from operational capital.
             </p>
         </div>
         <div class="feature-card reveal">
             <div class="feature-icon">📋</div>
-            <h3 class="feature-title">Non-Advisory Notice</h3>
+            <h3 class="feature-title">Terms of Engagement</h3>
             <p class="feature-description">
-                HNReserve provides capital allocation services, not personalized investment advice. Consult a licensed fiduciary prior to funding.
+                All partnerships require a signed Master Services Agreement detailing fee structure, reporting schedule, and withdrawal protocols.
             </p>
         </div>
     </div>
@@ -879,17 +862,17 @@
         <div class="footer-brand reveal">
             <a href="index.html" class="logo">HNRESERVE</a>
             <p class="footer-description">
-                Institutional-grade capital allocation. Risk-first mandate with transparent execution and monthly performance reporting.
+                Fiduciary-focused capital management. Built on proprietary quantitative models and absolute risk control.
             </p>
         </div>
 
         <div class="footer-section reveal">
             <h4>Platform</h4>
             <div class="footer-links">
-                <a href="#mandate">Mandate</a>
-                <a href="#performance">Performance</a>
-                <a href="#team">Leadership</a>
-                <a href="#programs">Programs</a>
+                <a href="#mandate">Fiduciary Mandate</a>
+                <a href="#performance">Alpha Metrics</a>
+                <a href="#leadership">Leadership</a>
+                <a href="#programs">Partnership Tiers</a>
             </div>
         </div>
 
@@ -897,16 +880,16 @@
             <h4>Compliance</h4>
             <div class="footer-links">
                 <a href="#compliance">Risk Disclosure</a>
-                <a href="#terms">Terms of Service</a>
+                <a href="#terms">Master Services Agreement</a>
                 <a href="#privacy">Privacy Policy</a>
-                <a href="payment.html">Apply Now</a>
+                <a href="payment.html">Fund Application</a>
             </div>
         </div>
     </div>
 
     <div class="footer-bottom">
-        <div>© 2025 HNReserve. All rights reserved.</div>
-        <div>Built for institutional alpha.</div>
+        <div>© 2025 HNReserve Capital Management. All rights reserved.</div>
+        <div>Engineered for sustained alpha.</div>
     </div>
 </footer>
 
@@ -932,19 +915,16 @@
         observer.observe(el);
     });
 
-    // --- Parallax Effect (Subtle depth) ---
-    const parallaxElements = document.querySelectorAll('[data-speed]');
+    // --- Parallax Effect (Subtle depth, applied only to hero text for performance) ---
+    const parallaxElements = document.querySelectorAll('.hero [data-speed]');
 
     window.addEventListener('scroll', () => {
+        const yOffset = window.pageYOffset;
+        
         parallaxElements.forEach(el => {
             const speed = el.getAttribute('data-speed');
-            const yOffset = window.pageYOffset;
-            const yPosition = yOffset * speed * 0.1; // 0.1 is a factor for subtlety
-            
-            // Only apply subtle vertical movement to main elements
-            if (el.tagName === 'H1' || el.tagName === 'P') {
-                 el.style.transform = `translateY(${yPosition}px)`;
-            }
+            const yPosition = yOffset * speed * 0.1;
+            el.style.transform = `translateY(${yPosition}px)`;
         });
         
         // Navigation Shadow
